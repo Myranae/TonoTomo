@@ -24,7 +24,7 @@ Practice building useful wireframes meant to guide front-end development
 
 TonoTomo is a social, mobile game where the user raises a critter from hatching its egg through five stages of growth to adulthood. The user must take care of TonoTomo by feeding it, giving it water, keeping it clean, and giving it love and attention. Attention can be provided by playing mini-games with the pet when it becomes bored. Show your affection by petting the critter, and keep it clean with regular baths! TonoTomo requires care on a realtime basis and tracks how much time has passed to update its needs. If you leave TonoTomo alone for too long, the critter may decide to go find another owner! How well you take care of your pet determines how it grows into an adult, so make sure to take good care of your pet! Along the way, connect with other TonoTomo owners and share your pet’s progress with them.
 
-## MVP Feature-set
+## MVP Feature-set - 
 
 - One egg
 - One version of each growth stage
