@@ -59,4 +59,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Will probably need to stop this after I figure out what to do
-/Assets
+/Assets/Resources/Art/
+/Assets/TextMesh Pro
