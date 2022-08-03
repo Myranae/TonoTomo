@@ -6,31 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class EggController : MonoBehaviour
 {
-    // private DateTime startDateTime;
     public Animator eggAnimator;
-
-    void Start()
-    {
-        // if(startDateTime == null)
-        // {
-        //     startDateTime = DateTime.UtcNow;
-        // }
-        // bool timeToHatch = false;
-
-    }
+    public float incubationTimeLeft;
 
     void Update()
     {
-        if(Time.time > 30)
-        {
-            eggAnimator.SetBool("timeToHatch", true);
-            
+        CheckIncubationTime();
+    }
 
+    private void CheckIncubationTime()
+    {
+        if(incubationTimeLeft > 0)
+        {
+            incubationTimeLeft -= Time.deltaTime;
         }
+        else eggAnimator.SetBool("timeToHatch", true);
     }
 
     void EggHatch()
     {
         SceneManager.LoadScene(2);
     }
+
+
 }
