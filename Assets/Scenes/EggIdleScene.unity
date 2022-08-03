@@ -259,6 +259,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4040055242125062109, guid: 698c395d81f024aea89e7446a977a51c, type: 3}
+      propertyPath: eggController
+      value: 
+      objectReference: {fileID: 2059049589}
     - target: {fileID: 4086180812701218561, guid: 698c395d81f024aea89e7446a977a51c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -593,3 +597,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggAnimator: {fileID: 2059049586}
+  incubationTimeLeft: 30

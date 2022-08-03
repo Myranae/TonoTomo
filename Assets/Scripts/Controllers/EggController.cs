@@ -8,10 +8,26 @@ public class EggController : MonoBehaviour
 {
     public Animator eggAnimator;
     public float incubationTimeLeft;
+    private GameObject pettingAnim;
+
+    private void Start() 
+    {
+        pettingAnim = transform.GetChild(1).GameObject;
+    }
 
     void Update()
     {
         CheckIncubationTime();
+    }
+
+    public void ShowPetting()
+    {
+        pettingAnim.SetActive(true);
+    }
+
+    public void StopPetting()
+    {
+        pettingAnim.SetActive(false);
     }
 
     private void CheckIncubationTime()

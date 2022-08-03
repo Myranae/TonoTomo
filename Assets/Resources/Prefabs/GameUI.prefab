@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180812453880370}
   - component: {fileID: 4086180812453880381}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IconBath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180812487651714}
   - component: {fileID: 4086180812487651725}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IconMedicine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180812605157291}
   - component: {fileID: 4086180812605157290}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IconGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180812619636073}
   - component: {fileID: 4086180812619636072}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IconInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -376195303
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ec15bae6db95244c392590dd3812740e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 4086180812701218566}
   - component: {fileID: 4086180812701218567}
   - component: {fileID: 4086180812701218564}
-  - component: {fileID: 4086180812701218565}
+  - component: {fileID: 4040055242125062109}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -509,50 +509,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4086180812701218565
+--- !u!114 &4040055242125062109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4086180812701218586}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: ac93849a2f4664703a9a32e742767113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
+  eggController: {fileID: 0}
 --- !u!1 &4086180812761436932
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180812761436935}
   - component: {fileID: 4086180812761436934}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: soundOff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -647,7 +616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180813106291427}
   - component: {fileID: 4086180813106291426}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: soundOn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180813132829136}
   - component: {fileID: 4086180813132829139}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IconDrink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +847,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -376195303
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c8d96699f57764efbb3ec22ff87c783d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -913,7 +882,7 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.55840826, g: 0.047058824, b: 0.75686276, a: 0.5529412}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -933,7 +902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4040055242125062109}
+        m_TargetAssemblyTypeName: PetUIController, Assembly-CSharp
+        m_MethodName: HatchFaster
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4086180813841527820
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,7 +925,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4086180813841527823}
   - component: {fileID: 4086180813841527822}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IconLights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
