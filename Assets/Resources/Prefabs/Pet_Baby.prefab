@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2073282360007915879}
   - component: {fileID: 2073282360007915878}
   - component: {fileID: 1972966450183728092}
+  - component: {fileID: 258814380282263030}
   m_Layer: 0
   m_Name: Pet_Baby
   m_TagString: Untagged
@@ -120,3 +121,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   petAnimator: {fileID: 2073282360007915878}
   speed: 5
+--- !u!114 &258814380282263030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073282360007915873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ff2503190b8d44cda3d5408665b3ca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: 100
+  happiness: 100
+  energy: 100
+  hydration: 100
+  cleanliness: 100
+  foodTickRate: 10
+  happinessTickRate: 10
+  energyTickRate: 10
+  hydrationTickRate: 10
+  cleanlinessTickRate: 10

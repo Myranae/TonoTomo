@@ -31,6 +31,12 @@ public class PetManager : MonoBehaviour
         pet.Move(waypoints[randomWaypoint].position);
     }
 
+    public static void Die()
+    {
+        //if the total of the needs gets below a certain amount is my end goal
+
+    }
+
     // private void RandomMoveTime()
     // {
     //     int randomTime = Random.Range(2,5);
