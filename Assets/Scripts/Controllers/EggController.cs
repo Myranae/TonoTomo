@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class EggController : MonoBehaviour
-{
+{   
+    // public ButtonController buttonController;
     public Animator eggAnimator;
     public float incubationTimeLeft;
     public GameObject pettingAnim;
@@ -13,11 +15,12 @@ public class EggController : MonoBehaviour
     private void Awake() 
     {
         incubationTimeLeft = 30;
+        pettingAnim.SetActive(false);
+
     }
 
     private void Start() 
     {
-        pettingAnim.SetActive(false);
     }
 
     void Update()
@@ -27,12 +30,21 @@ public class EggController : MonoBehaviour
 
     public void ShowPetting()
     {
+        Debug.Log("Received press!");
         pettingAnim.SetActive(true);
+        pettingAnim.SetActive(true);
+
     }
 
     public void StopPetting()
-    {
-        pettingAnim.SetActive(false);
+    {   
+        if (incubationTimeLeft > 0)
+        {
+
+            pettingAnim.SetActive(false);
+            incubationTimeLeft -= 5;
+            // buttonController.DisableButton();
+        }
     }
 
     private void CheckIncubationTime()
@@ -41,7 +53,11 @@ public class EggController : MonoBehaviour
         {
             incubationTimeLeft -= Time.deltaTime;
         }
-        else eggAnimator.SetBool("timeToHatch", true);
+        else 
+        {
+            pettingAnim.SetActive(false);
+            eggAnimator.SetBool("timeToHatch", true);
+        }
     }
 
     void EggHatch()
