@@ -20,6 +20,7 @@ public class PetUIController : MonoBehaviour
     {
         if (eggController.incubationTimeLeft > 0)
         {
+            eggController.ShowPetting();
             eggController.incubationTimeLeft -= 5;
         }
     }
