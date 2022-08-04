@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 4086180812701218564}
   - component: {fileID: 4040055242125062109}
   m_Layer: 5
-  m_Name: GameUI
+  m_Name: GameUI-old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

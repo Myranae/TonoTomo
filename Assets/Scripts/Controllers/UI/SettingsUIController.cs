@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystem;
 using UnityEngine.UI;
 
 public class SettingsUIController : MonoBehaviour
@@ -13,16 +12,15 @@ public class SettingsUIController : MonoBehaviour
     public bool muted;
 
 
-    void TurnOffSound()
+    public void TurnOffSound()
     {
         soundOn.SetActive(false);
         soundOff.SetActive(true);
-        // audioSource.clip = bckgrndMusic;
-        audioSource.Pause();
+        audioSource.Stop();
         muted = true;
     }
 
-    void TurnOnSound()
+    public void TurnOnSound()
     {
         soundOn.SetActive(true);
         soundOff.SetActive(false);
