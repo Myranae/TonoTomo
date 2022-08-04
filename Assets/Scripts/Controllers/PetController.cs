@@ -5,6 +5,7 @@ public class PetController : MonoBehaviour
     public Animator petAnimator;
     private Vector3 destination;
     public float speed;
+    public GameObject hungryAnim;
 
     private void Update() 
     {
@@ -12,12 +13,15 @@ public class PetController : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, destination, speed*Time.deltaTime);
         }
+
     }
 
     public void Move(Vector3 destination)
     {
         this.destination = destination;
     }
+
+
 
     public void Happy()
     {

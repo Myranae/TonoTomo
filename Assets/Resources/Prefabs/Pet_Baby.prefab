@@ -138,8 +138,10 @@ MonoBehaviour:
   energy: 100
   hydration: 100
   cleanliness: 100
+  health: 100
   foodTickRate: 10
   happinessTickRate: 10
   energyTickRate: 10
   hydrationTickRate: 10
   cleanlinessTickRate: 10
+  healthTickRate: 0
