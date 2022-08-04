@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class EggController : MonoBehaviour
 {
     public Animator eggAnimator;
-    private float incubationTimeLeft;
+    public float incubationTimeLeft;
     public GameObject pettingAnim;
 
     private void Awake() 
