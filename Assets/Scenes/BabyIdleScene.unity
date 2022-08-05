@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819107773285508, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_OverridePixelPerfect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8014819107773285509, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -196,7 +196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819107773285512, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8014819108110593009, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchorMax.y
@@ -778,6 +778,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1296920513, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296920513, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296920513, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2133565343
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296920513, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2073282360007915873, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: m_Name
       value: Pet_Baby
