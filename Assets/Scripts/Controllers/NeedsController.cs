@@ -1,12 +1,27 @@
+using System;
 using UnityEngine;
 
 public class NeedsController : MonoBehaviour
 {
     public int food, happiness, energy, hydration, cleanliness, health;
     public int foodTickRate, happinessTickRate, energyTickRate, hydrationTickRate, cleanlinessTickRate, healthTickRate;
+    public GameObject hungryAnim;
+    public DateTime lastTimeFed;
+    private PetController petController;
+    public GameObject pet;
+
+
+    private void Awake() 
+    {
+        hungryAnim.SetActive(false);
+    }
+    private void Start() {
+        petController = pet.GetComponent<PetController>();
+    }
 
     public void Initialize(int food, int happiness, int energy, int hydration, int cleanliness, int health)
     {
+        lastTimeFed = DateTime.Now; 
         this.food = food;
         this.happiness = happiness;
         this.energy = energy;
@@ -25,12 +40,79 @@ public class NeedsController : MonoBehaviour
             ChangeHydration(-hydrationTickRate);
             ChangeCleanliness(-cleanlinessTickRate);
         }
+
+        CheckHunger();
+        // CheckEnergy();
+        CheckHappiness();
     }
+
+    public void CheckHunger()
+    {   
+        if (food < 50)
+        {
+            ShowHungryAnim();
+        }
+        else
+        {
+            StopHungryAnim();
+        }
+    }
+
+    // public void CheckEnergy()
+    // {   
+    //     if (energy < 50)
+    //     {
+    //         ShowTiredAnim();
+    //     }
+    //     else
+    //     {
+    //         StopTiredAnim();
+    //     }
+    // }
+
+    public void CheckHappiness()
+    {   
+        if (happiness < 50 && petController.isSad == false)
+        {
+            petController.Sad();
+        }
+        else if (happiness >= 50 && petController.isSad == true)
+        {
+            // petController.Idle();
+            petController.notSad();
+        }
+    }
+
+    public void ShowHungryAnim()
+    {
+        hungryAnim.SetActive(true);
+    }
+
+    public void StopHungryAnim()
+    {
+        hungryAnim.SetActive(false);
+    }
+
+    // public void ShowTiredAnim()
+    // {
+    //     tiredAnim.SetActive(true);
+    // }
+
+    // public void StopHungryAnim()
+    // {
+    //     tiredAnim.SetActive(false);
+    // }
+
+
     // Might want to change the below to one called ChangeNeed and pass in
     // the string or variable of the need to change, plus the amount to change
     public void ChangeFood(int amount)
     {
         food += amount;
+        if (amount > 0)
+        {
+            lastTimeFed = DateTime.Now;
+        }
         if(food < 0)
         {
             PetManager.Die();

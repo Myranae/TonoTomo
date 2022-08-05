@@ -5,7 +5,8 @@ public class PetController : MonoBehaviour
     public Animator petAnimator;
     private Vector3 destination;
     public float speed;
-    public GameObject hungryAnim;
+    public bool isSad;
+    // public GameObject hungryAnim;
 
     private void Update() 
     {
@@ -21,7 +22,10 @@ public class PetController : MonoBehaviour
         this.destination = destination;
     }
 
-
+    public void Idle()
+    {
+        petAnimator.SetTrigger("Idle");
+    }
 
     public void Happy()
     {
@@ -35,7 +39,17 @@ public class PetController : MonoBehaviour
 
     public void Sad()
     {
-        petAnimator.SetTrigger("Sad");
+        // petAnimator.SetTrigger("Sad");
+        petAnimator.SetBool("isSad", true);
+        isSad = true;
+    }
+
+    public void notSad()
+    {
+        // petAnimator.SetTrigger("Sad");
+        petAnimator.SetBool("isSad", false);
+        isSad = false;
+        Idle();
     }
 
     public void Tired()
@@ -52,14 +66,17 @@ public class PetController : MonoBehaviour
     {
         petAnimator.SetTrigger("Eat");
     }
+
     public void Drink()
     {
         petAnimator.SetTrigger("Drink");
     }
+
     public void Dirty()
     {
         petAnimator.SetTrigger("Dirty");
     }
+
     public void Bath()
     {
         petAnimator.SetTrigger("Bath");
