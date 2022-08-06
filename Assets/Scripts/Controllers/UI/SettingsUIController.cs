@@ -16,7 +16,7 @@ public class SettingsUIController : MonoBehaviour
     {
         soundOn.SetActive(false);
         soundOff.SetActive(true);
-        audioSource.Stop();
+        audioSource.Pause();
         muted = true;
     }
 
@@ -31,7 +31,7 @@ public class SettingsUIController : MonoBehaviour
 
     void Start()
     {
-        
+        TurnOnSound();
     }
 
 

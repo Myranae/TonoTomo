@@ -7,8 +7,9 @@ public class NeedsController : MonoBehaviour
     public int foodTickRate, happinessTickRate, energyTickRate, hydrationTickRate, cleanlinessTickRate, healthTickRate;
     public GameObject hungryAnim;
     public DateTime lastTimeFed;
-    private PetController petController;
-    public GameObject pet;
+    // private PetController petController;
+    private NeedsManagement needsManagement;
+    public GameObject needsActions;
 
 
     private void Awake() 
@@ -16,7 +17,8 @@ public class NeedsController : MonoBehaviour
         hungryAnim.SetActive(false);
     }
     private void Start() {
-        petController = pet.GetComponent<PetController>();
+        // petController = pet.GetComponent<PetController>();
+        needsManagement = needsActions.GetComponent<NeedsManagement>();
     }
 
     public void Initialize(int food, int happiness, int energy, int hydration, int cleanliness, int health)
@@ -72,14 +74,14 @@ public class NeedsController : MonoBehaviour
 
     public void CheckHappiness()
     {   
-        if (happiness < 50 && petController.isSad == false)
+        if (happiness < 50 && needsManagement.isSad == false)
         {
-            petController.Sad();
+            needsManagement.Sad();
         }
-        else if (happiness >= 50 && petController.isSad == true)
+        else if (happiness >= 50 && needsManagement.isSad == true)
         {
             // petController.Idle();
-            petController.notSad();
+            needsManagement.notSad();
         }
     }
 
