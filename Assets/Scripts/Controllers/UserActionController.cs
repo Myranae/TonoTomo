@@ -28,12 +28,9 @@ public class UserActionController : MonoBehaviour
 
     public void IncreaseHappiness()
     {
-        if (needsController.happiness < (100-needAmtChange))
-        {
             needsController.happiness += needAmtChange;
-        }
-        
-        else
+            if (needsController.happiness > 100)
+                needsController.happiness = 100;
 
     }
 }

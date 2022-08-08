@@ -22,20 +22,19 @@ public class NeedsController : MonoBehaviour
         dirtyAnim.SetActive(false);
     }
     private void Start() {
-        // petController = pet.GetComponent<PetController>();
         needsManagement = needsActions.GetComponent<NeedsManagement>();
     }
 
-    public void Initialize(int food, int happiness, int energy, int hydration, int cleanliness, int health)
-    {
-        lastTimeFed = DateTime.Now; 
-        this.food = food;
-        this.happiness = happiness;
-        this.energy = energy;
-        this.hydration = hydration;
-        this.cleanliness = cleanliness;
-        this.health = health;
-    }
+    // public void Initialize(int food, int happiness, int energy, int hydration, int cleanliness, int health)
+    // {
+    //     lastTimeFed = DateTime.Now; 
+    //     this.food = food;
+    //     this.happiness = happiness;
+    //     this.energy = energy;
+    //     this.hydration = hydration;
+    //     this.cleanliness = cleanliness;
+    //     this.health = health;
+    // }
 
     private void Update() 
     {
@@ -46,6 +45,12 @@ public class NeedsController : MonoBehaviour
             ChangeEnergy(-energyTickRate);
             ChangeHydration(-hydrationTickRate);
             ChangeCleanliness(-cleanlinessTickRate);
+
+            if (food < 0) food = 0;
+            if (happiness < 0) happiness = 0;
+            if (energy < 0) energy = 0;
+            if (hydration < 0) hydration = 0;
+            if (cleanliness < 0) cleanliness = 0;
         }
 
         CheckHunger();
