@@ -1,12 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NeedsManagement : MonoBehaviour
 {
     public Animator petAnimator;
     public bool isSad;
+    public GameObject pettingAnim;
+    // public GameObject dirtyAnim;
 
+    private void Awake() {
+        pettingAnim.SetActive(false);
+        // dirtyAnim.SetActive(false);
+
+    }
     public void Idle()
     {
         petAnimator.SetTrigger("Idle");

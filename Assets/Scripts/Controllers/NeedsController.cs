@@ -6,15 +6,20 @@ public class NeedsController : MonoBehaviour
     public int food, happiness, energy, hydration, cleanliness, health;
     public int foodTickRate, happinessTickRate, energyTickRate, hydrationTickRate, cleanlinessTickRate, healthTickRate;
     public GameObject hungryAnim;
+    public GameObject dirtyAnim;
     public DateTime lastTimeFed;
     // private PetController petController;
     private NeedsManagement needsManagement;
     public GameObject needsActions;
 
+    [SerializeField]
+    private int needsThreshold;
+
 
     private void Awake() 
     {
         hungryAnim.SetActive(false);
+        dirtyAnim.SetActive(false);
     }
     private void Start() {
         // petController = pet.GetComponent<PetController>();
@@ -46,6 +51,7 @@ public class NeedsController : MonoBehaviour
         CheckHunger();
         // CheckEnergy();
         CheckHappiness();
+        CheckCleanliness();
     }
 
     public void CheckHunger()
@@ -57,6 +63,18 @@ public class NeedsController : MonoBehaviour
         else
         {
             StopHungryAnim();
+        }
+    }
+
+    public void CheckCleanliness()
+    {
+        if (cleanliness < 50)
+        {
+            ShowDirtyAnim();
+        }
+        else
+        {
+            StopDirtyAnim();
         }
     }
 
@@ -93,6 +111,15 @@ public class NeedsController : MonoBehaviour
     public void StopHungryAnim()
     {
         hungryAnim.SetActive(false);
+    }
+    public void ShowDirtyAnim()
+    {
+        dirtyAnim.SetActive(true);
+    }
+
+    public void StopDirtyAnim()
+    {
+        dirtyAnim.SetActive(false);
     }
 
     // public void ShowTiredAnim()
