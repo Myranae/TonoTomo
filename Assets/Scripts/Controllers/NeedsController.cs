@@ -14,6 +14,10 @@ public class NeedsController : MonoBehaviour
 
     [SerializeField]
     private int needsThreshold;
+    private ShowNeeds showNeeds;
+    public GameObject pet;
+
+
 
 
     private void Awake() 
@@ -23,6 +27,7 @@ public class NeedsController : MonoBehaviour
     }
     private void Start() {
         needsManagement = needsActions.GetComponent<NeedsManagement>();
+        showNeeds = pet.GetComponent<ShowNeeds>();
     }
 
     // public void Initialize(int food, int happiness, int energy, int hydration, int cleanliness, int health)
@@ -61,7 +66,7 @@ public class NeedsController : MonoBehaviour
 
     public void CheckHunger()
     {   
-        if (food < 50)
+        if (food < 50 && !showNeeds.hideNeedBubbles)
         {
             ShowHungryAnim();
         }
@@ -73,7 +78,7 @@ public class NeedsController : MonoBehaviour
 
     public void CheckCleanliness()
     {
-        if (cleanliness < 50)
+        if (cleanliness < 50 && !showNeeds.hideNeedBubbles)
         {
             ShowDirtyAnim();
         }
@@ -97,7 +102,7 @@ public class NeedsController : MonoBehaviour
 
     public void CheckHappiness()
     {   
-        if (happiness < 50 && needsManagement.isSad == false)
+        if (happiness < 50 && needsManagement.isSad == false )
         {
             needsManagement.Sad();
         }
@@ -192,6 +197,12 @@ public class NeedsController : MonoBehaviour
         } 
         else if(cleanliness > 100) cleanliness = 100;
     }
+
+    // public void ShowNeeds()
+    // {
+    //     needsManagement.hideNeedBubbles = false;
+    //     Debug.Log("Trying to change hideNeedBubbles");
+    // }
 }
 // Maybe have a "lives" or "needsChances" variable set to a certain number
 // then subtract one from that number each time a need hits or goes below 0

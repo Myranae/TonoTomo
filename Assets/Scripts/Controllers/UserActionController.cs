@@ -3,9 +3,11 @@ using UnityEngine;
 public class UserActionController : MonoBehaviour
 {
     public GameObject pettingAnim;
+    // [SerializeField] private NeedsManagement needsManagement;
     public NeedsController needsController;
     // public GameObject needsAction;
     private int needAmtChange = 10;
+    public GameObject pet;
 
     private void Awake() 
     {
@@ -31,6 +33,14 @@ public class UserActionController : MonoBehaviour
             needsController.happiness += needAmtChange;
             if (needsController.happiness > 100)
                 needsController.happiness = 100;
+
+    }
+
+    public void IncreaseCleanliness()
+    {
+            needsController.cleanliness += needAmtChange;
+            if (needsController.cleanliness > 100)
+                needsController.cleanliness = 100;
 
     }
 }

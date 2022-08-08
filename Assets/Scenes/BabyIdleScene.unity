@@ -278,6 +278,34 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 418101872}
+    - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Bath
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NeedsManagement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8014819108455898028, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -491,6 +519,7 @@ MonoBehaviour:
   petAnimator: {fileID: 1721181784}
   isSad: 0
   pettingAnim: {fileID: 697741869}
+  pet: {fileID: 793248273}
 --- !u!114 &418101878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
   needsController: {fileID: 2073282359512129332}
+  pet: {fileID: 793248273}
 --- !u!4 &655370669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 961970328986732109, guid: b1212729815b140ea8dfdfe53b060aa2, type: 3}
@@ -630,6 +660,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
   needsController: {fileID: 2073282359512129332}
+  pet: {fileID: 0}
+--- !u!1 &793248273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2073282360007915873, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+  m_PrefabInstance: {fileID: 2073282359512129330}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &857804104
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +895,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1972966450183728092, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
   m_PrefabInstance: {fileID: 2073282359512129330}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 793248273}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22ffa35ae131486ca62fa1e3a38461f, type: 3}
@@ -1126,6 +1162,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: pet
+      value: 
+      objectReference: {fileID: 793248273}
+    - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: dirtyAnim
       value: 
       objectReference: {fileID: 857804104}
@@ -1139,8 +1179,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: happinessTickRate
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1972966450183728092, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: showNeeds
+      value: 
+      objectReference: {fileID: 2073282359512129336}
+    - target: {fileID: 1972966450183728092, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: needsManagement
+      value: 
+      objectReference: {fileID: 418101872}
     - target: {fileID: 2073282360007915873, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: m_Name
       value: Pet_Baby
@@ -1151,11 +1199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2073282360007915876, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2073282360007915876, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2073282360007915876, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1205,7 +1253,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
   m_PrefabInstance: {fileID: 2073282359512129330}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 793248273}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ff2503190b8d44cda3d5408665b3ca0, type: 3}
@@ -1216,6 +1264,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3469487466978980110, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
   m_PrefabInstance: {fileID: 2073282359512129330}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2073282359512129335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793248273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82613f48ebb554809ae4146ed041b348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pettingAnim: {fileID: 697741869}
+  needsController: {fileID: 2073282359512129332}
+  pet: {fileID: 793248273}
+--- !u!114 &2073282359512129336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793248273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3d485a90e03401c929c5f0e13c26db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsManagement: {fileID: 418101872}
+  anim: {fileID: 1721181784}
+  hideNeedBubbles: 0
 --- !u!1001 &5265182822827720165
 PrefabInstance:
   m_ObjectHideFlags: 0
