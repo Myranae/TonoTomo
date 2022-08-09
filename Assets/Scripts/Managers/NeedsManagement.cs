@@ -56,11 +56,13 @@ public class NeedsManagement : MonoBehaviour
 
     public void Eat()
     {
+        showNeeds.hideNeedBubbles = true;
         petAnimator.SetTrigger("Eat");
     }
 
     public void Drink()
     {
+        showNeeds.hideNeedBubbles = true;
         petAnimator.SetTrigger("Drink");
     }
 

@@ -8,6 +8,8 @@ public class UserActionController : MonoBehaviour
     // public GameObject needsAction;
     private int happinessChange = 10;
     private int cleanlinessChange = 30;
+    private int foodChange = 15;
+    private int hydrationChange = 15;
     public GameObject pet;
 
     private void Awake() 
@@ -42,6 +44,21 @@ public class UserActionController : MonoBehaviour
             needsController.cleanliness += cleanlinessChange;
             if (needsController.cleanliness > 100)
                 needsController.cleanliness = 100;
+
+    }
+    public void IncreaseHydration()
+    {
+            needsController.hydration += hydrationChange;
+            if (needsController.hydration > 100)
+                needsController.hydration = 100;
+
+    }
+
+    public void IncreaseFood()
+    {
+            needsController.food += foodChange;
+            if (needsController.food > 100)
+                needsController.food = 100;
 
     }
 }

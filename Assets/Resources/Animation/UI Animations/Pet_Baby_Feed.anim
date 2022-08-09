@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Pet_Baby_Bath
+  m_Name: Pet_Baby_Feed
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,29 +19,21 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0.5
-      value: {fileID: 733629683, guid: 2ac1d54617e084824818a4953476615a, type: 3}
+    - time: 0
+      value: {fileID: 1361850140, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
+    - time: 0.33333334
+      value: {fileID: 1596068053, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
+    - time: 0.6666667
+      value: {fileID: -558535377, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
     - time: 1
-      value: {fileID: -142477627, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - time: 1.5
-      value: {fileID: 2107125816, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - time: 2
-      value: {fileID: 570197545, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - time: 2.5
-      value: {fileID: -142477627, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - time: 3
-      value: {fileID: 570197545, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - time: 3.5
-      value: {fileID: 2107125816, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - time: 4
-      value: {fileID: 570197545, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - time: 4.5
-      value: {fileID: -142477627, guid: 2ac1d54617e084824818a4953476615a, type: 3}
+      value: {fileID: 17833107, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
+    - time: 1.3333334
+      value: {fileID: 361502514, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 2
+  m_SampleRate: 3
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -56,21 +48,17 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 733629683, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: -142477627, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: 2107125816, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: 570197545, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: -142477627, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: 570197545, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: 2107125816, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: 570197545, guid: 2ac1d54617e084824818a4953476615a, type: 3}
-    - {fileID: -142477627, guid: 2ac1d54617e084824818a4953476615a, type: 3}
+    - {fileID: 1361850140, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
+    - {fileID: 1596068053, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
+    - {fileID: -558535377, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
+    - {fileID: 17833107, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
+    - {fileID: 361502514, guid: 005935e16a6444a0fa039ecc02bdc7fd, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 5
+    m_StopTime: 1.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,15 +78,15 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 4
+  - time: 1.3333334
     functionName: ShowNeedsBubbles
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4
-    functionName: IncreaseCleanliness
+  - time: 1.3333334
+    functionName: IncreaseFood
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
