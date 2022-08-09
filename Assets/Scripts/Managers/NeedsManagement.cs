@@ -66,10 +66,10 @@ public class NeedsManagement : MonoBehaviour
         petAnimator.SetTrigger("Drink");
     }
 
-    public void Dirty()
-    {
-        petAnimator.SetTrigger("Dirty");
-    }
+    // public void Dirty()
+    // {
+    //     petAnimator.SetTrigger("Dirty");
+    // }
 
     public void Bath()
     {
@@ -77,9 +77,10 @@ public class NeedsManagement : MonoBehaviour
         petAnimator.SetTrigger("Bath");
     }
 
-    public void Sleep()
-    {
-        petAnimator.SetTrigger("Sleep");
-    }
+    // public void Sleep()
+    // {
+    //     showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
+    //     petAnimator.SetTrigger("Sleep");
+    // }
 
 }

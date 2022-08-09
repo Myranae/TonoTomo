@@ -14,11 +14,24 @@ public class UserActionController : MonoBehaviour
 
     public GameObject pet;
     public GameObject lightsOff;
+    public GameObject medicineAction;
+    public GameObject gameAction;
+    public GameObject bathAction;
+    public GameObject drinkAction;
+    public GameObject foodAction;
+    public GameObject petAction;
+    private ShowNeeds showNeeds;
+
 
     private void Awake() 
     {
         pettingAnim.SetActive(false);
         // needsController = GetComponent<NeedsController>();
+    }
+
+    private void Start() 
+    {
+        showNeeds = pet.GetComponent<ShowNeeds>();
     }
 
     public void ShowPetting()
@@ -59,7 +72,15 @@ public class UserActionController : MonoBehaviour
 
     public void GoToSleep() 
     {
-        lightsOff.SetActive(true);
+        lightsOff.SetActive(!lightsOff.activeSelf);
+        medicineAction.SetActive(!medicineAction.activeSelf);
+        gameAction.SetActive(!gameAction.activeSelf);
+        bathAction.SetActive(!bathAction.activeSelf);
+        drinkAction.SetActive(!drinkAction.activeSelf);
+        foodAction.SetActive(!foodAction.activeSelf);
+        petAction.SetActive(!petAction.activeSelf);
+        showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
+
     }
 
     public void IncreaseFood()

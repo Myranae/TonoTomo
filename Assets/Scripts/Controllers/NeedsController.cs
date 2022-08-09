@@ -202,11 +202,6 @@ public class NeedsController : MonoBehaviour
         else if(cleanliness > 100) cleanliness = 100;
     }
 
-    // public void ShowNeeds()
-    // {
-    //     needsManagement.hideNeedBubbles = false;
-    //     Debug.Log("Trying to change hideNeedBubbles");
-    // }
 }
 // Maybe have a "lives" or "needsChances" variable set to a certain number
 // then subtract one from that number each time a need hits or goes below 0
