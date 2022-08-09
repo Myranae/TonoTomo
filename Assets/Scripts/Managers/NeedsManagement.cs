@@ -7,23 +7,13 @@ public class NeedsManagement : MonoBehaviour
     public bool isSad;
     public GameObject pettingAnim;
     public GameObject pet;
-    // public bool hideNeedBubbles;
 
     private void Awake() {
         pettingAnim.SetActive(false);
-        // hideNeedBubbles = false;
         // dirtyAnim.SetActive(false);
         showNeeds = pet.GetComponent<ShowNeeds>();
 
     }
-
-    // private void Update() 
-    // {
-    //     if (petAnimator.GetCurrentAnimatorStateInfo(0).IsName("Bath") && petAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-    //     {
-    //     hideNeedBubbles = false;
-    //     }
-    // }
     public void Idle()
     {
         petAnimator.SetTrigger("Idle");
@@ -89,12 +79,5 @@ public class NeedsManagement : MonoBehaviour
     {
         petAnimator.SetTrigger("Sleep");
     }
-
-    // public void ShowNeeds()
-    // {
-    //     Debug.Log("Trying to change hideNeedBubbles1");
-    //     hideNeedBubbles = false;
-    //     Debug.Log("Trying to change hideNeedBubbles2");
-    // }
 
 }

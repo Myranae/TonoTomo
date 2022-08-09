@@ -6,7 +6,8 @@ public class UserActionController : MonoBehaviour
     // [SerializeField] private NeedsManagement needsManagement;
     public NeedsController needsController;
     // public GameObject needsAction;
-    private int needAmtChange = 10;
+    private int happinessChange = 10;
+    private int cleanlinessChange = 30;
     public GameObject pet;
 
     private void Awake() 
@@ -30,7 +31,7 @@ public class UserActionController : MonoBehaviour
 
     public void IncreaseHappiness()
     {
-            needsController.happiness += needAmtChange;
+            needsController.happiness += happinessChange;
             if (needsController.happiness > 100)
                 needsController.happiness = 100;
 
@@ -38,7 +39,7 @@ public class UserActionController : MonoBehaviour
 
     public void IncreaseCleanliness()
     {
-            needsController.cleanliness += needAmtChange;
+            needsController.cleanliness += cleanlinessChange;
             if (needsController.cleanliness > 100)
                 needsController.cleanliness = 100;
 
