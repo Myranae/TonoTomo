@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class NeedsController : MonoBehaviour
 {
-    public int food, happiness, energy, hydration, cleanliness, health;
-    public int foodTickRate, happinessTickRate, energyTickRate, hydrationTickRate, cleanlinessTickRate, healthTickRate;
+    public int food, happiness, hydration, cleanliness, health;
+    public float energy;
+    
+    public int foodTickRate, happinessTickRate, hydrationTickRate, cleanlinessTickRate, healthTickRate;
+    public float energyTickRate;
     public GameObject hungryAnim;
     public GameObject dirtyAnim;
     public DateTime lastTimeFed;
@@ -16,6 +19,7 @@ public class NeedsController : MonoBehaviour
     private int needsThreshold;
     private ShowNeeds showNeeds;
     public GameObject pet;
+    public GameObject tiredAnim;
 
 
 
@@ -59,9 +63,9 @@ public class NeedsController : MonoBehaviour
         }
 
         CheckHunger();
-        // CheckEnergy();
-        CheckHappiness();
         CheckCleanliness();
+        CheckEnergy();
+        CheckHappiness();
     }
 
     public void CheckHunger()
@@ -88,17 +92,17 @@ public class NeedsController : MonoBehaviour
         }
     }
 
-    // public void CheckEnergy()
-    // {   
-    //     if (energy < 50)
-    //     {
-    //         ShowTiredAnim();
-    //     }
-    //     else
-    //     {
-    //         StopTiredAnim();
-    //     }
-    // }
+    public void CheckEnergy()
+    {   
+        if (energy < 20 && !showNeeds.hideNeedBubbles)
+        {
+            ShowTiredAnim();
+        }
+        else
+        {
+            StopTiredAnim();
+        }
+    }
 
     public void CheckHappiness()
     {   
@@ -132,15 +136,15 @@ public class NeedsController : MonoBehaviour
         dirtyAnim.SetActive(false);
     }
 
-    // public void ShowTiredAnim()
-    // {
-    //     tiredAnim.SetActive(true);
-    // }
+    public void ShowTiredAnim()
+    {
+        tiredAnim.SetActive(true);
+    }
 
-    // public void StopHungryAnim()
-    // {
-    //     tiredAnim.SetActive(false);
-    // }
+    public void StopTiredAnim()
+    {
+        tiredAnim.SetActive(false);
+    }
 
 
     // Might want to change the below to one called ChangeNeed and pass in
@@ -170,7 +174,7 @@ public class NeedsController : MonoBehaviour
         
     }
 
-    public void ChangeEnergy(int amount)
+    public void ChangeEnergy(float amount)
     {
         energy += amount;
         if(energy < 0)

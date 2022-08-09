@@ -10,7 +10,10 @@ public class UserActionController : MonoBehaviour
     private int cleanlinessChange = 30;
     private int foodChange = 15;
     private int hydrationChange = 15;
+    private int energyChange = (1/2520);
+
     public GameObject pet;
+    public GameObject lightsOff;
 
     private void Awake() 
     {
@@ -54,11 +57,23 @@ public class UserActionController : MonoBehaviour
 
     }
 
+    public void GoToSleep() 
+    {
+        lightsOff.SetActive(true);
+    }
+
     public void IncreaseFood()
     {
             needsController.food += foodChange;
             if (needsController.food > 100)
                 needsController.food = 100;
+
+    }
+    public void IncreaseEnergy()
+    {
+            needsController.energy += energyChange;
+            if (needsController.energy > 100)
+                needsController.energy = 100;
 
     }
 }
