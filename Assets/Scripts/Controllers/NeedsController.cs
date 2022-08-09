@@ -12,7 +12,6 @@ public class NeedsController : MonoBehaviour
     public GameObject dirtyAnim;
     public GameObject thirstyAnim;
     public DateTime lastTimeFed;
-    // private PetController petController;
     private NeedsManagement needsManagement;
     public GameObject needsActions;
 
@@ -21,9 +20,6 @@ public class NeedsController : MonoBehaviour
     private ShowNeeds showNeeds;
     public GameObject pet;
     public GameObject tiredAnim;
-
-
-
 
     private void Awake() 
     {
@@ -105,6 +101,7 @@ public class NeedsController : MonoBehaviour
             StopTiredAnim();
         }
     }
+
     public void CheckHydration()
     {   
         if (hydration < 50 && !showNeeds.hideNeedBubbles)
@@ -125,7 +122,6 @@ public class NeedsController : MonoBehaviour
         }
         else if (happiness >= 50 && needsManagement.isSad == true)
         {
-            // petController.Idle();
             needsManagement.notSad();
         }
     }
@@ -158,6 +154,7 @@ public class NeedsController : MonoBehaviour
     {
         tiredAnim.SetActive(false);
     }
+
     public void ShowThirstyAnim()
     {
         thirstyAnim.SetActive(true);
@@ -193,7 +190,6 @@ public class NeedsController : MonoBehaviour
             PetManager.Die();
         } 
         else if(happiness > 100) happiness = 100;
-        
     }
 
     public void ChangeEnergy(float amount)
@@ -205,6 +201,7 @@ public class NeedsController : MonoBehaviour
         } 
         else if(energy > 100) energy = 100;
     }
+
     public void ChangeHydration(int amount)
     {
         hydration += amount;
@@ -214,6 +211,7 @@ public class NeedsController : MonoBehaviour
         } 
         else if(hydration > 100) hydration = 100;
     }
+
     public void ChangeCleanliness(int amount)
     {
         cleanliness += amount;

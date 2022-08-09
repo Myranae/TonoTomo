@@ -24,10 +24,10 @@ public class NeedsManagement : MonoBehaviour
         petAnimator.SetTrigger("Happy");
     }
 
-    public void Hungry()
-    {
-        petAnimator.SetTrigger("Hungry");
-    }
+    // public void Hungry()
+    // {
+    //     petAnimator.SetTrigger("Hungry");
+    // }
 
     public void Sad()
     {
@@ -44,15 +44,15 @@ public class NeedsManagement : MonoBehaviour
         // Idle();
     }
 
-    public void Tired()
-    {
-        petAnimator.SetTrigger("Tired");
-    }
+    // public void Tired()
+    // {
+    //     petAnimator.SetTrigger("Tired");
+    // }
 
-    public void Thirsty()
-    {
-        petAnimator.SetTrigger("Thirsty");
-    }
+    // public void Thirsty()
+    // {
+    //     petAnimator.SetTrigger("Thirsty");
+    // }
 
     public void Eat()
     {

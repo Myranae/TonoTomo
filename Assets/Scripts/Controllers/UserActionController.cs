@@ -11,7 +11,6 @@ public class UserActionController : MonoBehaviour
     private int foodChange = 15;
     private int hydrationChange = 15;
     private int energyChange = (1/2520);
-
     public GameObject pet;
     public GameObject lightsOff;
     public GameObject medicineAction;
@@ -26,7 +25,6 @@ public class UserActionController : MonoBehaviour
     private void Awake() 
     {
         pettingAnim.SetActive(false);
-        // needsController = GetComponent<NeedsController>();
     }
 
     private void Start() 
@@ -36,8 +34,7 @@ public class UserActionController : MonoBehaviour
 
     public void ShowPetting()
     {
-        // Debug.Log("Received press!");
-        // pettingAnim.SetActive(true);
+        pettingAnim.SetActive(true);
         pettingAnim.SetActive(true);
     }
 
@@ -49,25 +46,24 @@ public class UserActionController : MonoBehaviour
 
     public void IncreaseHappiness()
     {
-            needsController.happiness += happinessChange;
-            if (needsController.happiness > 100)
-                needsController.happiness = 100;
+        needsController.happiness += happinessChange;
+        if (needsController.happiness > 100)
+            needsController.happiness = 100;
 
     }
 
     public void IncreaseCleanliness()
     {
-            needsController.cleanliness += cleanlinessChange;
-            if (needsController.cleanliness > 100)
-                needsController.cleanliness = 100;
+        needsController.cleanliness += cleanlinessChange;
+        if (needsController.cleanliness > 100)
+            needsController.cleanliness = 100;
 
     }
     public void IncreaseHydration()
     {
-            needsController.hydration += hydrationChange;
-            if (needsController.hydration > 100)
-                needsController.hydration = 100;
-
+        needsController.hydration += hydrationChange;
+        if (needsController.hydration > 100)
+            needsController.hydration = 100;
     }
 
     public void GoToSleep() 
@@ -80,21 +76,18 @@ public class UserActionController : MonoBehaviour
         foodAction.SetActive(!foodAction.activeSelf);
         petAction.SetActive(!petAction.activeSelf);
         showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
-
     }
 
     public void IncreaseFood()
     {
-            needsController.food += foodChange;
-            if (needsController.food > 100)
-                needsController.food = 100;
-
+        needsController.food += foodChange;
+        if (needsController.food > 100)
+            needsController.food = 100;
     }
     public void IncreaseEnergy()
     {
-            needsController.energy += energyChange;
-            if (needsController.energy > 100)
-                needsController.energy = 100;
-
+        needsController.energy += energyChange;
+        if (needsController.energy > 100)
+            needsController.energy = 100;
     }
 }

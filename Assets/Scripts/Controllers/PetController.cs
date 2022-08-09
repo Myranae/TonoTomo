@@ -24,5 +24,4 @@ public class PetController : MonoBehaviour
         this.destination = destination;
     }
 
-
 }
