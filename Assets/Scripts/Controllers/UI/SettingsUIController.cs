@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingsUIController : MonoBehaviour
 {
@@ -38,5 +36,10 @@ public class SettingsUIController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeScene(int sceneNum)
+    {
+        SceneManager.LoadScene(sceneNum);
     }
 }
