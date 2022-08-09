@@ -10,6 +10,7 @@ public class NeedsController : MonoBehaviour
     public float energyTickRate;
     public GameObject hungryAnim;
     public GameObject dirtyAnim;
+    public GameObject thirstyAnim;
     public DateTime lastTimeFed;
     // private PetController petController;
     private NeedsManagement needsManagement;
@@ -66,6 +67,7 @@ public class NeedsController : MonoBehaviour
         CheckCleanliness();
         CheckEnergy();
         CheckHappiness();
+        CheckHydration();
     }
 
     public void CheckHunger()
@@ -101,6 +103,17 @@ public class NeedsController : MonoBehaviour
         else
         {
             StopTiredAnim();
+        }
+    }
+    public void CheckHydration()
+    {   
+        if (hydration < 50 && !showNeeds.hideNeedBubbles)
+        {
+            ShowThirstyAnim();
+        }
+        else
+        {
+            StopThirstyAnim();
         }
     }
 
@@ -144,6 +157,15 @@ public class NeedsController : MonoBehaviour
     public void StopTiredAnim()
     {
         tiredAnim.SetActive(false);
+    }
+    public void ShowThirstyAnim()
+    {
+        thirstyAnim.SetActive(true);
+    }
+
+    public void StopThirstyAnim()
+    {
+        thirstyAnim.SetActive(false);
     }
 
 
