@@ -16,6 +16,7 @@ public class GameData
         this.happinessStat = defaultStat;
         this.hydrationStat = defaultStat;
         this.healthStat = defaultStat;
+        this.foodStat = defaultStat;
         this.gameStart = DateTime.UtcNow;
 
     }

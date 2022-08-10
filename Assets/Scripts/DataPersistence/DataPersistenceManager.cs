@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+    [Header("File Storage Config")]
+    [SerializeField] private string fileName;
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
+    private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
 
     private void Awake() 
@@ -19,6 +22,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void Start() 
     {   
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
@@ -30,6 +34,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        this.gameData = dataHandler.Load();
+
         if (this.gameData == null)
         {
             Debug.Log("No data was found. Initializing to defaults.");
@@ -52,6 +58,8 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         Debug.Log("Saved food count = " + gameData.foodStat);
+
+        dataHandler.Save(gameData);
     }
 
     private void OnApplicationQuit()

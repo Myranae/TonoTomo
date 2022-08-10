@@ -63,6 +63,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         this.energy = data.energyStat;
         this.hydration = data.hydrationStat;
         this.cleanliness = data.hydrationStat;
+        this.health = data.healthStat;
 
     }
 
@@ -73,6 +74,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         data.energyStat = this.energy;
         data.hydrationStat = this.hydration;
         data.cleanlinessStat = this.cleanliness;
+        data.healthStat = this.health;
     }
 
     public void CheckHunger()
