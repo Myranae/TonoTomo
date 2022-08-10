@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Opening 2.unity
     guid: e1407cac8bc754c6dbf0c420c9ade0ae
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: dbbe666d1360f4936a79e2bd3ce2a1ba
+  - enabled: 1
     path: Assets/Scenes/EggIdleScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
     path: Assets/Scenes/BabyIdleScene.unity
     guid: a6817aff6a38c44c88b8ac44c2ddede2
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: dbbe666d1360f4936a79e2bd3ce2a1ba
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: a4bde7f918ca848ababc38526f08715f, type: 2}

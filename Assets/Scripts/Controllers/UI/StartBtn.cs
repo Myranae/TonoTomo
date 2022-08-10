@@ -5,6 +5,6 @@ public class StartBtn : MonoBehaviour
 {
     public void LoadGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("EggIdleScene");
     }
 }

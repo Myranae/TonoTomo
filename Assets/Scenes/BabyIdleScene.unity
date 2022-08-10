@@ -534,6 +534,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 121034092}
+    - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SettingsUIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8014819109224151015, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -580,6 +608,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+--- !u!114 &121034092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8014819109064408610, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+  m_PrefabInstance: {fileID: 121034091}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5a9560d2b08648529ea41155387a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &138708285
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
   needsController: {fileID: 2073282359512129332}
-  pet: {fileID: 0}
+  pet: {fileID: 793248273}
   lightsOff: {fileID: 0}
   medicineAction: {fileID: 0}
   gameAction: {fileID: 0}
@@ -1964,6 +2003,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hideNeedBubbles: 0
+--- !u!114 &2073282359512129338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793248273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d368ad6ef4db4b9cbf9268e890b0821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5265182822827720165
 PrefabInstance:
   m_ObjectHideFlags: 0

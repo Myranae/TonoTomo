@@ -77,6 +77,17 @@ public class UserActionController : MonoBehaviour
         petAction.SetActive(!petAction.activeSelf);
         showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
     }
+    public void EggGoToSleep() 
+    {
+        lightsOff.SetActive(!lightsOff.activeSelf);
+        // medicineAction.SetActive(!medicineAction.activeSelf);
+        // gameAction.SetActive(!gameAction.activeSelf);
+        // bathAction.SetActive(!bathAction.activeSelf);
+        // drinkAction.SetActive(!drinkAction.activeSelf);
+        // foodAction.SetActive(!foodAction.activeSelf);
+        petAction.SetActive(!petAction.activeSelf);
+        // showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
+    }
 
     public void IncreaseFood()
     {

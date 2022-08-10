@@ -8,7 +8,24 @@ public class SettingsUIController : MonoBehaviour
     [SerializeField] private AudioClip bckgrndMusic;
     [SerializeField] private AudioSource audioSource;
     public bool muted;
+    [HideInInspector] public Scene currentScene;
+    private string sceneName;
 
+
+    void Start()
+    {
+        TurnOnSound();
+    }
+
+
+    void Update()
+    {
+        // Scene newScene = SceneManager.GetActiveScene();
+        // if(newScene.name != "Menu" && currentScene != newScene)
+        // {
+        //     currentScene = newScene;
+        // }
+    }
 
     public void TurnOffSound()
     {
@@ -27,19 +44,23 @@ public class SettingsUIController : MonoBehaviour
         muted = false;
     }
 
-    void Start()
+    public void GetCurrentScene()
     {
-        TurnOnSound();
+        currentScene = SceneManager.GetActiveScene();
+        sceneName = currentScene.name;
+        Debug.Log("Newly current scene is: " + sceneName);
     }
 
-
-    void Update()
+    public void GoToMenu()
     {
-        
+        SceneManager.LoadScene("Menu");
+        Debug.Log(sceneName);
     }
 
-    public void ChangeScene(int sceneNum)
+    public void ReturnToActiveScene()
     {
-        SceneManager.LoadScene(sceneNum);
+        // Debug.Log("Current scene is: " + currentScene.name);
+        Debug.Log("Previous scene name is: " + Level.PreviousLevel);
+        SceneManager.LoadScene(Level.PreviousLevel);
     }
 }

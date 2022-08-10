@@ -282,7 +282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 94.5, y: 124.49999}
+  m_AnchoredPosition: {x: 94.49994, y: 124.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &240476652
@@ -331,12 +331,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1452613886}
         m_TargetAssemblyTypeName: SettingsUIController, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 3
+        m_MethodName: ReturnToActiveScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -990,6 +990,8 @@ MonoBehaviour:
   bckgrndMusic: {fileID: 8300000, guid: 013d7e8ed8dd34f41aa9c237bf2fedf4, type: 3}
   audioSource: {fileID: 2082718085}
   muted: 0
+  currentScene:
+    m_Handle: 0
 --- !u!1 &1598801956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1155,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1452613886}
         m_TargetAssemblyTypeName: SettingsUIController, Assembly-CSharp
-        m_MethodName: TurnOffSound
+        m_MethodName: TurnOnSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1229,7 +1231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 34.5, y: -31.499939}
+  m_AnchoredPosition: {x: 34.5, y: -31.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1830426019
@@ -1471,7 +1473,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1452613886}
         m_TargetAssemblyTypeName: SettingsUIController, Assembly-CSharp
-        m_MethodName: TurnOnSound
+        m_MethodName: TurnOffSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1547,7 +1549,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 34.5, y: -31.499939}
+  m_AnchoredPosition: {x: 34.5, y: -31.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2089554604

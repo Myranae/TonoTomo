@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 
 public class EggController : MonoBehaviour
@@ -62,7 +59,7 @@ public class EggController : MonoBehaviour
 
     void EggHatch()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("BabyIdleScene");
     }
 
 
