@@ -32,6 +32,14 @@ public class UserActionController : MonoBehaviour
         showNeeds = pet.GetComponent<ShowNeeds>();
     }
 
+    private void Update()
+    {
+        if (lightsOff.activeInHierarchy)
+        {
+            IncreaseEnergy();
+        }
+    }
+
     public void ShowPetting()
     {
         pettingAnim.SetActive(true);

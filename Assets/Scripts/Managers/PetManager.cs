@@ -6,10 +6,17 @@ public class PetManager : MonoBehaviour
     public PetController pet;
     public float petMoveTimer, originalPetMoveTimer;
     public Transform[] waypoints;
+    public static PetManager instance;
+
 
     private void Awake() 
     {
         originalPetMoveTimer = petMoveTimer;
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else Debug.LogWarning("More than one PetManager in the Scene");
     }
     private void Update() 
     {
@@ -32,7 +39,7 @@ public class PetManager : MonoBehaviour
         pet.Move(waypoints[randomWaypoint].position);
     }
 
-    public static void Die()
+    public void Die()
     {
         SceneManager.LoadScene("Opening2");
         // Need to also delete the GameData object so a new save is created

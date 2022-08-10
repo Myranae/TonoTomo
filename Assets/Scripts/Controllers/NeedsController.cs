@@ -3,23 +3,21 @@ using UnityEngine;
 
 public class NeedsController : MonoBehaviour, IDataPersistence
 {
-    public int food, happiness, hydration, cleanliness;
-    public float energy, health;
-    
-    public int foodTickRate, happinessTickRate, hydrationTickRate, cleanlinessTickRate;
-    public float energyTickRate, healthTickRate;
+    public float food, happiness, hydration, cleanliness, energy, health;
+    public float foodTickRate, happinessTickRate, hydrationTickRate, cleanlinessTickRate, energyTickRate, healthTickRate;
     public GameObject hungryAnim;
     public GameObject dirtyAnim;
     public GameObject thirstyAnim;
     public DateTime lastTimeFed;
     private NeedsManagement needsManagement;
     public GameObject needsActions;
-
-    [SerializeField]
-    private int needsThreshold;
+    [SerializeField] private int needsThreshold;
     private ShowNeeds showNeeds;
     public GameObject pet;
     public GameObject tiredAnim;
+    public TimeSpan interval;
+    public long ticksSinceLastPlayed;
+    public long gameHoursSinceLastPlayed;
 
     private void Awake() 
     {
@@ -40,12 +38,6 @@ public class NeedsController : MonoBehaviour, IDataPersistence
             ChangeEnergy(-energyTickRate);
             ChangeHydration(-hydrationTickRate);
             ChangeCleanliness(-cleanlinessTickRate);
-
-            if (food < 0) food = 0;
-            if (happiness < 0) happiness = 0;
-            if (energy < 0) energy = 0;
-            if (hydration < 0) hydration = 0;
-            if (cleanliness < 0) cleanliness = 0;
         }
 
         CheckHunger();
@@ -58,13 +50,30 @@ public class NeedsController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        this.food = data.foodStat;
-        this.happiness = data.happinessStat;
-        this.energy = data.energyStat;
-        this.hydration = data.hydrationStat;
-        this.cleanliness = data.hydrationStat;
-        this.health = data.healthStat;
+        data.gameStart = DateTime.UtcNow;
+        long timePassed = CalculateGameHoursPassed(data);
+        
+        this.food = data.foodStat - foodTickRate*timePassed;
+        this.happiness = data.happinessStat - happinessTickRate*timePassed;
+        this.energy = data.energyStat - energyTickRate*timePassed;
+        this.hydration = data.hydrationStat - hydrationTickRate*timePassed;
+        this.cleanliness = data.cleanlinessStat - cleanlinessTickRate*timePassed;
+        this.health = data.healthStat - healthTickRate*timePassed;
 
+        if (this.food < 0) this.food = 0;
+        if (this.happiness < 0) this.happiness = 0;
+        if (this.energy < 0) this.energy = 0;
+        if (this.hydration < 0) this.hydration = 0;
+        if (this.cleanliness < 0) this.cleanliness = 0;
+        if (this.health < 0) this.health = 0;
+    }
+
+    public long CalculateGameHoursPassed(GameData data)
+    {
+        interval = data.gameStart - data.gameLastPlayed;
+        ticksSinceLastPlayed = interval.Ticks;
+        gameHoursSinceLastPlayed = ticksSinceLastPlayed / (long)TimingManager.instance.hourLength;
+        return gameHoursSinceLastPlayed;
     }
 
     public void SaveData(ref GameData data)
@@ -75,6 +84,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         data.hydrationStat = this.hydration;
         data.cleanlinessStat = this.cleanliness;
         data.healthStat = this.health;
+        data.gameLastPlayed = DateTime.UtcNow;
     }
 
     public void CheckHunger()
@@ -176,75 +186,69 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         thirstyAnim.SetActive(false);
     }
 
-
     // Might want to change the below to one called ChangeNeed and pass in
     // the string or variable of the need to change, plus the amount to change
-    public void ChangeFood(int amount)
+    public void ChangeFood(float amount)
     {
         food += amount;
-        if (amount > 0)
+        if(food > 100) food = 100;
+        if (food < 0) 
         {
-            lastTimeFed = DateTime.Now;
-        }
-        if(food < 0)
-        {
+            food = 0;
             health -= healthTickRate;
-        } 
-        else if(food > 100) food = 100;
+        }
     }
 
-    public void ChangeHappiness(int amount)
+    public void ChangeHappiness(float amount)
     {
         happiness += amount;
-        if(happiness < 0)
+        if(happiness > 100) happiness = 100;
+        if (happiness < 0) 
         {
+            happiness = 0;
             health -= healthTickRate;
-        } 
-        else if(happiness > 100) happiness = 100;
+        }
     }
 
     public void ChangeEnergy(float amount)
     {
         energy += amount;
+        if(energy > 100) energy = 100;
         if(energy < 0)
         {
+            energy = 0;
             health -= healthTickRate;
-        } 
-        else if(energy > 100) energy = 100;
+        }
     }
 
-    public void ChangeHydration(int amount)
+    public void ChangeHydration(float amount)
     {
         hydration += amount;
+        if(hydration > 100) hydration = 100;
         if(hydration < 0)
         {
+            hydration = 0;
             health -= healthTickRate;
         } 
-        else if(hydration > 100) hydration = 100;
     }
 
-    public void ChangeCleanliness(int amount)
+    public void ChangeCleanliness(float amount)
     {
         cleanliness += amount;
+        if(cleanliness > 100) cleanliness = 100;
         if(cleanliness < 0)
         {
+            cleanliness = 0;
             health -= healthTickRate;
         } 
-        else if(cleanliness > 100) cleanliness = 100;
     }
 
     public void CheckForPetDeath()
     {
         if (health < 0) 
         {
-            PetManager.Die();
+            PetManager.instance.Die();
         }
     }
 
 }
-// Maybe have a "lives" or "needsChances" variable set to a certain number
-// then subtract one from that number each time a need hits or goes below 0
-// then run DeathCheck on every update and DeathCheck says if the "lives"
-//variable is at or below 0, then run the Die method
-// I think when two needs are at 0, then health starts to decrease
-// or something like that. 
