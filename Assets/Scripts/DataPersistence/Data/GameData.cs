@@ -3,21 +3,19 @@ using System;
 [System.Serializable]
 public class GameData 
 {
-    public int foodStat;
-    public int happinessStat;
-    public int hydrationStat;
-    public int cleanlinessStat;
-    public int healthStat;
-    public float energyStat;
+    public int foodStat, cleanlinessStat, happinessStat, hydrationStat;
+    public float energyStat, healthStat;
     public DateTime gameStart;
+    // public DateTime gameExit;
+    private int defaultStat = 100;
 
     public GameData()
     {
-        this.cleanlinessStat = NeedsController.cleanliness;
-        this.energyStat = NeedsController.energy;
-        this.happinessStat = NeedsController.happiness;
-        this.hydrationStat = NeedsController.hydration;
-        this.healthStat = NeedsController.health;
+        this.cleanlinessStat = defaultStat;
+        this.energyStat = defaultStat;
+        this.happinessStat = defaultStat;
+        this.hydrationStat = defaultStat;
+        this.healthStat = defaultStat;
         this.gameStart = DateTime.UtcNow;
 
     }

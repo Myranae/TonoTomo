@@ -788,6 +788,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8014819108455898029, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
   m_PrefabInstance: {fileID: 121034091}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &367724753
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 367724754}
+  - component: {fileID: 367724755}
+  m_Layer: 0
+  m_Name: DataPersistenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &367724754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367724753}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1738668163}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &367724755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367724753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd29048a75f842128d97e5349c8342c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &418101860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8014819107773285513, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
@@ -822,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
-  needsController: {fileID: 2073282359512129332}
+  needsController: {fileID: 0}
   pet: {fileID: 793248273}
   lightsOff: {fileID: 1944772511}
   medicineAction: {fileID: 571929566}
@@ -1070,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
-  needsController: {fileID: 2073282359512129332}
+  needsController: {fileID: 0}
   pet: {fileID: 793248273}
   lightsOff: {fileID: 0}
   medicineAction: {fileID: 0}
@@ -1557,7 +1601,8 @@ Transform:
   m_LocalPosition: {x: -0.32, y: -1.12, z: -0.09472548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 367724754}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1984,17 +2029,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2073282360007915876, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
   m_PrefabInstance: {fileID: 2073282359512129330}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2073282359512129332 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
-  m_PrefabInstance: {fileID: 2073282359512129330}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793248273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ff2503190b8d44cda3d5408665b3ca0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2073282359512129333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3469487466978980110, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
@@ -2013,7 +2047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
-  needsController: {fileID: 2073282359512129332}
+  needsController: {fileID: 0}
   pet: {fileID: 793248273}
   lightsOff: {fileID: 0}
   medicineAction: {fileID: 0}

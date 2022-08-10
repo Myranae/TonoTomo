@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PetManager : MonoBehaviour
 {
@@ -33,7 +34,9 @@ public class PetManager : MonoBehaviour
 
     public static void Die()
     {
-        //if the total of the needs gets below a certain amount is my end goal
+        SceneManager.LoadScene("Opening2");
+        // Need to also delete the GameData object so a new save is created
+        // when the game is re-loaded
 
     }
 

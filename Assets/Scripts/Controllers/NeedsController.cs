@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-public class NeedsController : MonoBehaviour
+public class NeedsController : MonoBehaviour, IDataPersistence
 {
-    public static int food, happiness, hydration, cleanliness, health;
-    public static float energy;
+    public int food, happiness, hydration, cleanliness;
+    public float energy, health;
     
-    public int foodTickRate, happinessTickRate, hydrationTickRate, cleanlinessTickRate, healthTickRate;
-    public float energyTickRate;
+    public int foodTickRate, happinessTickRate, hydrationTickRate, cleanlinessTickRate;
+    public float energyTickRate, healthTickRate;
     public GameObject hungryAnim;
     public GameObject dirtyAnim;
     public GameObject thirstyAnim;
@@ -31,17 +31,6 @@ public class NeedsController : MonoBehaviour
         showNeeds = pet.GetComponent<ShowNeeds>();
     }
 
-    // public void Initialize(int food, int happiness, int energy, int hydration, int cleanliness, int health)
-    // {
-    //     lastTimeFed = DateTime.Now; 
-    //     this.food = food;
-    //     this.happiness = happiness;
-    //     this.energy = energy;
-    //     this.hydration = hydration;
-    //     this.cleanliness = cleanliness;
-    //     this.health = health;
-    // }
-
     private void Update() 
     {
         if(TimingManager.gameHourTimer < 0)
@@ -64,6 +53,26 @@ public class NeedsController : MonoBehaviour
         CheckEnergy();
         CheckHappiness();
         CheckHydration();
+        CheckForPetDeath();
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.food = data.foodStat;
+        this.happiness = data.happinessStat;
+        this.energy = data.energyStat;
+        this.hydration = data.hydrationStat;
+        this.cleanliness = data.hydrationStat;
+
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.foodStat = this.food;
+        data.happinessStat = this.happiness;
+        data.energyStat = this.energy;
+        data.hydrationStat = this.hydration;
+        data.cleanlinessStat = this.cleanliness;
     }
 
     public void CheckHunger()
@@ -177,7 +186,7 @@ public class NeedsController : MonoBehaviour
         }
         if(food < 0)
         {
-            PetManager.Die();
+            health -= healthTickRate;
         } 
         else if(food > 100) food = 100;
     }
@@ -187,7 +196,7 @@ public class NeedsController : MonoBehaviour
         happiness += amount;
         if(happiness < 0)
         {
-            PetManager.Die();
+            health -= healthTickRate;
         } 
         else if(happiness > 100) happiness = 100;
     }
@@ -197,7 +206,7 @@ public class NeedsController : MonoBehaviour
         energy += amount;
         if(energy < 0)
         {
-            PetManager.Die();
+            health -= healthTickRate;
         } 
         else if(energy > 100) energy = 100;
     }
@@ -207,7 +216,7 @@ public class NeedsController : MonoBehaviour
         hydration += amount;
         if(hydration < 0)
         {
-            PetManager.Die();
+            health -= healthTickRate;
         } 
         else if(hydration > 100) hydration = 100;
     }
@@ -217,9 +226,17 @@ public class NeedsController : MonoBehaviour
         cleanliness += amount;
         if(cleanliness < 0)
         {
-            PetManager.Die();
+            health -= healthTickRate;
         } 
         else if(cleanliness > 100) cleanliness = 100;
+    }
+
+    public void CheckForPetDeath()
+    {
+        if (health < 0) 
+        {
+            PetManager.Die();
+        }
     }
 
 }
