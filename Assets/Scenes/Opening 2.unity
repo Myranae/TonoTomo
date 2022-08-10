@@ -328,7 +328,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TonaTomo
+  m_text: TonoTomo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf9f73529f4c0440b844205bd8d7bd68, type: 2}
   m_sharedMaterial: {fileID: -5841960075517388399, guid: cf9f73529f4c0440b844205bd8d7bd68, type: 2}
@@ -510,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.4}
+  m_AnchoredPosition: {x: 0, y: -1.3999996}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513542895

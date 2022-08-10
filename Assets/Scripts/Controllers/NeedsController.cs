@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class NeedsController : MonoBehaviour
 {
-    public int food, happiness, hydration, cleanliness, health;
-    public float energy;
+    public static int food, happiness, hydration, cleanliness, health;
+    public static float energy;
     
     public int foodTickRate, happinessTickRate, hydrationTickRate, cleanlinessTickRate, healthTickRate;
     public float energyTickRate;

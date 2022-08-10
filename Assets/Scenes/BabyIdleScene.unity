@@ -182,6 +182,22 @@ PrefabInstance:
       propertyPath: Mute
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8014819107551746221, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819107551746221, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819107551746221, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819107551746221, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2133565343
+      objectReference: {fileID: 0}
     - target: {fileID: 8014819107661661576, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -310,6 +326,22 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8014819108244602046, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108244602046, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108244602046, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_SortingOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014819108244602046, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -2133565343
+      objectReference: {fileID: 0}
     - target: {fileID: 8014819108455898027, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -428,7 +460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109064408611, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109064408611, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchorMax.x
@@ -524,7 +556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109064408612, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_SortingOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109064408612, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_SortingLayerID
@@ -631,7 +663,7 @@ GameObject:
   - component: {fileID: 138708289}
   - component: {fileID: 138708288}
   - component: {fileID: 138708287}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: WhiteSleepyAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,7 +1025,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2133565343
   m_SortingLayer: 2
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1396,7 +1428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695376909}
   - component: {fileID: 1695376910}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SoundBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1458,7 +1490,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2133565343
   m_SortingLayer: 2
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.54509807}
   m_FlipX: 0
@@ -1527,7 +1559,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1738668164
 MonoBehaviour:
@@ -1598,7 +1630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944772512}
   - component: {fileID: 1944772513}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Lights Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1620,7 +1652,7 @@ Transform:
   - {fileID: 138708286}
   - {fileID: 1695376909}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1944772513
 SpriteRenderer:
