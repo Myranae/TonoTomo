@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class EggController : MonoBehaviour
+public class EggController : MonoBehaviour, IDataPersistence
 {   
     // public ButtonController buttonController;
     public Animator eggAnimator;
@@ -11,18 +10,24 @@ public class EggController : MonoBehaviour
 
     private void Awake() 
     {
-        incubationTimeLeft = 30;
         pettingAnim.SetActive(false);
-
-    }
-
-    private void Start() 
-    {
     }
 
     void Update()
     {
         CheckIncubationTime();
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.incubationTimeLeft = data.incubationTimeLeftStat;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.incubationTimeLeftStat = this.incubationTimeLeft;
+        data.lastScene = SceneManager.GetActiveScene().name;
+        Debug.Log("Last scene was: " + data.lastScene);
     }
 
     public void ShowPetting()

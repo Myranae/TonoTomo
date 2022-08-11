@@ -788,51 +788,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8014819108455898029, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
   m_PrefabInstance: {fileID: 121034091}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &367724753
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 367724754}
-  - component: {fileID: 367724755}
-  m_Layer: 0
-  m_Name: DataPersistenceManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &367724754
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367724753}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1738668163}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &367724755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367724753}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd29048a75f842128d97e5349c8342c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileName: data.game
 --- !u!1 &418101860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8014819107773285513, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
@@ -1421,6 +1376,62 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2633436223404714631, guid: b1212729815b140ea8dfdfe53b060aa2, type: 3}
   m_PrefabInstance: {fileID: 1632905279802450241}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1410968126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410968127}
+  - component: {fileID: 1410968128}
+  m_Layer: 0
+  m_Name: DataPersistenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410968127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410968126}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1738668163}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410968128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410968126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd29048a75f842128d97e5349c8342c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initializeDataIfNull: 0
+  fileName: data.game
+  useEncryption: 0
+  gameData:
+    foodStat: 70
+    cleanlinessStat: 70
+    happinessStat: 70
+    hydrationStat: 70
+    energyStat: 70
+    healthStat: 70
+    incubationTimeLeftStat: 60
+    lastScene: EggIdleScene
 --- !u!1 &1483332146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,7 +1721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 367724754}
+  - {fileID: 1410968127}
   - {fileID: 1625557505}
   - {fileID: 876026259}
   m_Father: {fileID: 0}
@@ -2161,13 +2172,13 @@ MonoBehaviour:
   pettingAnim: {fileID: 697741869}
   needsController: {fileID: 2073282359512129332}
   pet: {fileID: 793248273}
-  lightsOff: {fileID: 0}
-  medicineAction: {fileID: 0}
-  gameAction: {fileID: 0}
-  bathAction: {fileID: 0}
-  drinkAction: {fileID: 0}
-  foodAction: {fileID: 0}
-  petAction: {fileID: 0}
+  lightsOff: {fileID: 1944772511}
+  medicineAction: {fileID: 571929566}
+  gameAction: {fileID: 1210019827}
+  bathAction: {fileID: 348912783}
+  drinkAction: {fileID: 1733408344}
+  foodAction: {fileID: 1130716247}
+  petAction: {fileID: 666921473}
 --- !u!114 &2073282359512129336
 MonoBehaviour:
   m_ObjectHideFlags: 0

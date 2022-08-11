@@ -1,16 +1,18 @@
 using System;
-
 [System.Serializable]
 public class GameData 
 {
-    public float foodStat, cleanlinessStat, happinessStat, hydrationStat, energyStat, healthStat;
+    public float foodStat, cleanlinessStat, happinessStat, hydrationStat, energyStat, healthStat, incubationTimeLeftStat;
     public DateTime gameStart;
     public DateTime gameLastPlayed;
     // public DateTime gameExit;
-    private int defaultStat = 100;
+    private int defaultStat = 70;
+    public string lastScene;
 
     public GameData()
     {
+        this.lastScene = "EggIdleScene";
+        this.incubationTimeLeftStat = 60;
         this.cleanlinessStat = defaultStat;
         this.energyStat = defaultStat;
         this.happinessStat = defaultStat;

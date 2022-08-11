@@ -78,13 +78,15 @@ public class NeedsController : MonoBehaviour, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        data.foodStat = this.food;
-        data.happinessStat = this.happiness;
-        data.energyStat = this.energy;
-        data.hydrationStat = this.hydration;
-        data.cleanlinessStat = this.cleanliness;
-        data.healthStat = this.health;
-        data.gameLastPlayed = DateTime.UtcNow;
+        {
+            data.foodStat = this.food;
+            data.happinessStat = this.happiness;
+            data.energyStat = this.energy;
+            data.hydrationStat = this.hydration;
+            data.cleanlinessStat = this.cleanliness;
+            data.healthStat = this.health;
+            data.gameLastPlayed = DateTime.UtcNow;
+        }
     }
 
     public void CheckHunger()
