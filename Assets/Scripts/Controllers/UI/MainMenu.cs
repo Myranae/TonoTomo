@@ -29,7 +29,8 @@ public class MainMenu : MonoBehaviour
     {   
         DisableMenuButtons();
         DataPersistenceManager.instance.LoadGame();
-        SceneManager.LoadScene(dataPersistenceManager.gameData.lastScene);
+        Debug.Log("Last scene saved: " + dataPersistenceManager.gameData.lastScene);
+        SceneManager.LoadSceneAsync(dataPersistenceManager.gameData.lastScene);
     }
 
     public void OnSaveGameClicked()

@@ -320,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819108244602042, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_Volume
-      value: 0.51
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8014819108244602042, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_PlayOnAwake
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
-  needsController: {fileID: 0}
+  needsController: {fileID: 2073282359512129332}
   pet: {fileID: 793248273}
   lightsOff: {fileID: 1944772511}
   medicineAction: {fileID: 571929566}
@@ -1070,15 +1070,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pettingAnim: {fileID: 697741869}
-  needsController: {fileID: 0}
+  needsController: {fileID: 2073282359512129332}
   pet: {fileID: 793248273}
-  lightsOff: {fileID: 0}
-  medicineAction: {fileID: 0}
-  gameAction: {fileID: 0}
-  bathAction: {fileID: 0}
-  drinkAction: {fileID: 0}
-  foodAction: {fileID: 0}
-  petAction: {fileID: 0}
+  lightsOff: {fileID: 1944772511}
+  medicineAction: {fileID: 571929566}
+  gameAction: {fileID: 1210019827}
+  bathAction: {fileID: 348912783}
+  drinkAction: {fileID: 1733408344}
+  foodAction: {fileID: 1130716247}
+  petAction: {fileID: 666921473}
 --- !u!1 &793248273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2073282360007915873, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
@@ -1420,7 +1420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd29048a75f842128d97e5349c8342c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initializeDataIfNull: 0
   fileName: data.game
   useEncryption: 0
   gameData:
@@ -1432,6 +1431,7 @@ MonoBehaviour:
     healthStat: 70
     incubationTimeLeftStat: 60
     lastScene: EggIdleScene
+    hasHatchedStat: 0
 --- !u!1 &1483332146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1701,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1738668163}
-  - component: {fileID: 1738668164}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1727,37 +1726,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1738668164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738668161}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 684093f988bfb4e22a80288326de2e13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pet: {fileID: 1721181783}
-  petMoveTimer: 1.5
-  originalPetMoveTimer: 0
-  waypoints:
-  - {fileID: 1701752821}
-  - {fileID: 2061461440}
-  - {fileID: 2115009509}
-  - {fileID: 286039614}
-  - {fileID: 312586730}
-  - {fileID: 1321812050}
-  - {fileID: 1817207933}
-  - {fileID: 871762708}
-  - {fileID: 1972708398}
-  - {fileID: 1399728806}
-  - {fileID: 935135378}
-  - {fileID: 1753596937}
-  - {fileID: 655370669}
-  - {fileID: 145589057}
-  - {fileID: 1830178368}
 --- !u!4 &1753596937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6273608211690225378, guid: b1212729815b140ea8dfdfe53b060aa2, type: 3}
@@ -2031,6 +1999,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 857804104}
     - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: lightsOff
+      value: 
+      objectReference: {fileID: 1944772511}
+    - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: tiredAnim
       value: 
       objectReference: {fileID: 1483332146}
@@ -2046,6 +2018,10 @@ PrefabInstance:
       propertyPath: needsActions
       value: 
       objectReference: {fileID: 418101860}
+    - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: eggController
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: energyTickRate
       value: 1
@@ -2070,6 +2046,10 @@ PrefabInstance:
       propertyPath: cleanlinessTickRate
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 258814380282263030, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: userActionController
+      value: 
+      objectReference: {fileID: 2073282359512129335}
     - target: {fileID: 1972966450183728092, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: showNeeds
       value: 

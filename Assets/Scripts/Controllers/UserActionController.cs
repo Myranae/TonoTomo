@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UserActionController : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class UserActionController : MonoBehaviour
     private int cleanlinessChange = 30;
     private int foodChange = 15;
     private int hydrationChange = 15;
-    private int energyChange = (1/2520);
+    // This is how much the energyChange should be if it needs to sleep all night; it's not tuned for that yet though
+    // private int energyChange = (1/2520);
+    private int energyChange = 5;
     public GameObject pet;
     public GameObject lightsOff;
     public GameObject medicineAction;
@@ -34,10 +37,11 @@ public class UserActionController : MonoBehaviour
 
     private void Update()
     {
-        if (lightsOff.activeInHierarchy)
-        {
-            IncreaseEnergy();
-        }
+        // if (lightsOff.activeSelf)
+        // {
+        //     Debug.Log("LightsOff is active.");
+        //     IncreaseEnergy();
+        // }
     }
 
     public void ShowPetting()
@@ -105,8 +109,12 @@ public class UserActionController : MonoBehaviour
     }
     public void IncreaseEnergy()
     {
-        needsController.energy += energyChange;
-        if (needsController.energy > 100)
-            needsController.energy = 100;
+        Debug.Log("Active scene name is: " + SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name != "EggIdleScene")
+        {
+            needsController.energy += energyChange;
+            if (needsController.energy > 100)
+                needsController.energy = 100;
+        }
     }
 }

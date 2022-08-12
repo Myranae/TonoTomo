@@ -8,10 +8,12 @@ public class GameData
     // public DateTime gameExit;
     private int defaultStat = 70;
     public string lastScene;
+    public bool hasHatchedStat;
 
     public GameData()
     {
-        this.lastScene = "EggIdleScene";
+        this.lastScene = null;
+        this.hasHatchedStat = false;
         this.incubationTimeLeftStat = 60;
         this.cleanlinessStat = defaultStat;
         this.energyStat = defaultStat;
@@ -20,6 +22,6 @@ public class GameData
         this.healthStat = defaultStat;
         this.foodStat = defaultStat;
         this.gameStart = DateTime.UtcNow;
-        this.gameLastPlayed = new DateTime();
+        this.gameLastPlayed = DateTime.UtcNow;
     }
 }

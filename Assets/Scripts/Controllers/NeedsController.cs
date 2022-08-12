@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+// using System.Collections;
 
 public class NeedsController : MonoBehaviour, IDataPersistence
 {
@@ -16,63 +18,85 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     public GameObject pet;
     public GameObject tiredAnim;
     public TimeSpan interval;
-    public long ticksSinceLastPlayed;
-    public long gameHoursSinceLastPlayed;
+    public float secondsSinceLastPlayed;
+    public float gameHoursSinceLastPlayed;
+    // public EggController eggController;
+    public bool hasHatchedNc;
+    public GameObject lightsOff;
+    public UserActionController userActionController;
 
     private void Awake() 
     {
         hungryAnim.SetActive(false);
         dirtyAnim.SetActive(false);
+        thirstyAnim.SetActive(false);
+        tiredAnim.SetActive(false);
     }
     private void Start() {
         needsManagement = needsActions.GetComponent<NeedsManagement>();
         showNeeds = pet.GetComponent<ShowNeeds>();
+        Debug.Log("");
     }
 
     private void Update() 
     {
-        if(TimingManager.gameHourTimer < 0)
+        if (hasHatchedNc) 
         {
-            ChangeFood(-foodTickRate);
-            ChangeHappiness(-happinessTickRate);
-            ChangeEnergy(-energyTickRate);
-            ChangeHydration(-hydrationTickRate);
-            ChangeCleanliness(-cleanlinessTickRate);
-        }
+            if (TimingManager.gameHourTimer < 0)
+            {
+                ChangeFood(-foodTickRate);
+                ChangeHappiness(-happinessTickRate);
+                ChangeEnergy(-energyTickRate);
+                ChangeHydration(-hydrationTickRate);
+                ChangeCleanliness(-cleanlinessTickRate);
+                
+                if (lightsOff.activeSelf)
+                {
+                    Debug.Log("LightsOff is active.");
+                    userActionController.IncreaseEnergy();
+                }
+            }
 
-        CheckHunger();
-        CheckCleanliness();
-        CheckEnergy();
-        CheckHappiness();
-        CheckHydration();
-        CheckForPetDeath();
+            CheckHunger();
+            CheckCleanliness();
+            CheckEnergy();
+            CheckHappiness();
+            CheckHydration();
+            CheckForPetDeath();
+        }
     }
 
     public void LoadData(GameData data)
     {
         data.gameStart = DateTime.UtcNow;
-        long timePassed = CalculateGameHoursPassed(data);
-        
+        Debug.Log("This is gameStart on LoadData: " + data.gameStart);
+        Debug.Log("This is gameLastPlayed on LoadData: " + data.gameLastPlayed);
+        Debug.Log("This is data.hasHatchedStat on LoadData: " + data.hasHatchedStat);
+
+        float timePassed = data.hasHatchedStat ? CalculateGameHoursPassed(data) : 0;
+        Debug.Log("This is timePassed: " + timePassed);
+
         this.food = data.foodStat - foodTickRate*timePassed;
+        Debug.Log("This is the new food: " + this.food);
+
         this.happiness = data.happinessStat - happinessTickRate*timePassed;
+        Debug.Log("On LoadData, this.happiness = " + this.happiness);
+
         this.energy = data.energyStat - energyTickRate*timePassed;
         this.hydration = data.hydrationStat - hydrationTickRate*timePassed;
         this.cleanliness = data.cleanlinessStat - cleanlinessTickRate*timePassed;
         this.health = data.healthStat - healthTickRate*timePassed;
-
-        if (this.food < 0) this.food = 0;
-        if (this.happiness < 0) this.happiness = 0;
-        if (this.energy < 0) this.energy = 0;
-        if (this.hydration < 0) this.hydration = 0;
-        if (this.cleanliness < 0) this.cleanliness = 0;
-        if (this.health < 0) this.health = 0;
+        this.hasHatchedNc = data.hasHatchedStat;
     }
 
-    public long CalculateGameHoursPassed(GameData data)
+    public float CalculateGameHoursPassed(GameData data)
     {
         interval = data.gameStart - data.gameLastPlayed;
-        ticksSinceLastPlayed = interval.Ticks;
-        gameHoursSinceLastPlayed = ticksSinceLastPlayed / (long)TimingManager.instance.hourLength;
+        Debug.Log("This is the interval: " + interval);
+        secondsSinceLastPlayed = interval.Seconds;
+        Debug.Log("This is seconds since last played: " + secondsSinceLastPlayed);
+        Debug.Log("This is seconds times deltaTime: " + secondsSinceLastPlayed * Time.deltaTime);
+        gameHoursSinceLastPlayed = secondsSinceLastPlayed / TimingManager.instance.hourLength;
         return gameHoursSinceLastPlayed;
     }
 
@@ -86,6 +110,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
             data.cleanlinessStat = this.cleanliness;
             data.healthStat = this.health;
             data.gameLastPlayed = DateTime.UtcNow;
+            data.lastScene = SceneManager.GetActiveScene().name != "Menu" ? SceneManager.GetActiveScene().name : data.lastScene;
         }
     }
 
@@ -194,6 +219,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         food += amount;
         if(food > 100) food = 100;
+        // if(food < 0) food = 0;
         if (food < 0) 
         {
             food = 0;
@@ -205,6 +231,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         happiness += amount;
         if(happiness > 100) happiness = 100;
+        // if(happiness < 0) happiness = 0;
         if (happiness < 0) 
         {
             happiness = 0;
@@ -216,6 +243,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         energy += amount;
         if(energy > 100) energy = 100;
+        // if(energy < 0) energy = 0;
         if(energy < 0)
         {
             energy = 0;
@@ -227,6 +255,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         hydration += amount;
         if(hydration > 100) hydration = 100;
+        // if(hydration < 0) hydration = 0;
         if(hydration < 0)
         {
             hydration = 0;
@@ -238,6 +267,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         cleanliness += amount;
         if(cleanliness > 100) cleanliness = 100;
+        // if(cleanliness < 0) cleanliness = 0;
         if(cleanliness < 0)
         {
             cleanliness = 0;

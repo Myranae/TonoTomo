@@ -15,13 +15,4 @@ public class PetUIController : MonoBehaviour
         }
         else Debug.LogWarning("More than one PetUIController in the Scene.");
     }
-
-    public void HatchFaster()
-    {
-        if (eggController.incubationTimeLeft > 0)
-        {
-            eggController.ShowPetting();
-            eggController.incubationTimeLeft -= 5;
-        }
-    }
 }

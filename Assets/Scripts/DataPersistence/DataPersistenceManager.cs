@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class DataPersistenceManager : MonoBehaviour
 {
-    [Header("Debugging")]
-    [SerializeField] private bool initializeDataIfNull = false;
+    // [Header("Debugging")]
+    // [SerializeField] private bool initializeDataIfNull = false;
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
@@ -14,6 +14,7 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
+
 
     private void Awake() 
     {
@@ -46,6 +47,7 @@ public class DataPersistenceManager : MonoBehaviour
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
         // SceneManager.LoadScene(gameData.lastScene);
+
     }
 
     public void OnSceneUnloaded(Scene scene)
@@ -62,10 +64,10 @@ public class DataPersistenceManager : MonoBehaviour
     {
         this.gameData = dataHandler.Load();
 
-        if (this.gameData == null && initializeDataIfNull)
-        {
-            NewGame();
-        }
+        // if (this.gameData == null && initializeDataIfNull)
+        // {
+        //     NewGame();
+        // }
 
         if (this.gameData == null)
         {

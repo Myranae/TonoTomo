@@ -41,7 +41,7 @@ public class PetManager : MonoBehaviour
 
     public void Die()
     {
-        SceneManager.LoadScene("Opening2");
+        // SceneManager.LoadScene("Opening2");
         // Need to also delete the GameData object so a new save is created
         // when the game is re-loaded
 
