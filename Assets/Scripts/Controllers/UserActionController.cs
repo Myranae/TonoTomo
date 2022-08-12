@@ -50,11 +50,11 @@ public class UserActionController : MonoBehaviour
         pettingAnim.SetActive(true);
     }
 
-    public void StopPetting()
-    {   
-        pettingAnim.SetActive(false);
-        IncreaseHappiness();
-    }
+    // public void StopPetting()
+    // {   
+    //     pettingAnim.SetActive(false);
+    //     IncreaseHappiness();
+    // }
 
     public void IncreaseHappiness()
     {
@@ -117,4 +117,10 @@ public class UserActionController : MonoBehaviour
                 needsController.energy = 100;
         }
     }
+
+    // public void ShowPetting()
+    // {
+    //     pettingAnim.SetActive(true);
+    //     pettingAnim.SetActive(true);
+    // }
 }

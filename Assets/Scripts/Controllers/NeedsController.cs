@@ -10,6 +10,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     public GameObject hungryAnim;
     public GameObject dirtyAnim;
     public GameObject thirstyAnim;
+    public GameObject sickAnim;
     public DateTime lastTimeFed;
     private NeedsManagement needsManagement;
     public GameObject needsActions;
@@ -31,11 +32,11 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         dirtyAnim.SetActive(false);
         thirstyAnim.SetActive(false);
         tiredAnim.SetActive(false);
+        sickAnim.SetActive(false);
     }
     private void Start() {
         needsManagement = needsActions.GetComponent<NeedsManagement>();
         showNeeds = pet.GetComponent<ShowNeeds>();
-        Debug.Log("");
     }
 
     private void Update() 
@@ -62,6 +63,7 @@ public class NeedsController : MonoBehaviour, IDataPersistence
             CheckEnergy();
             CheckHappiness();
             CheckHydration();
+            CheckHealth();
             CheckForPetDeath();
         }
     }
@@ -161,6 +163,17 @@ public class NeedsController : MonoBehaviour, IDataPersistence
             StopThirstyAnim();
         }
     }
+    public void CheckHealth()
+    {   
+        if (health < 30 && !showNeeds.hideNeedBubbles)
+        {
+            ShowSickAnim();
+        }
+        else
+        {
+            StopSickAnim();
+        }
+    }
 
     public void CheckHappiness()
     {   
@@ -191,6 +204,15 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     public void StopDirtyAnim()
     {
         dirtyAnim.SetActive(false);
+    }
+    public void ShowSickAnim()
+    {
+        sickAnim.SetActive(true);
+    }
+
+    public void StopSickAnim()
+    {
+        sickAnim.SetActive(false);
     }
 
     public void ShowTiredAnim()

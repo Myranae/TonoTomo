@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
 
 public class EggController : MonoBehaviour, IDataPersistence
 {   
     // public ButtonController buttonController;
+    // private GameObject dpm;
     public DataPersistenceManager dataPersistenceManager;
     public Animator eggAnimator;
-    private float incubationTimeLeft;
+    public float incubationTimeLeft;
+    public float actualIncTime; 
     public GameObject pettingAnim;
     public bool hasHatched;
     public UserActionController userActionController;
@@ -17,11 +20,26 @@ public class EggController : MonoBehaviour, IDataPersistence
     private void Awake() 
     {
         pettingAnim.SetActive(false);
+
+        // dpm = GameObject.FindWithTag("DPM");
+        // dataPersistenceManager = dpm.GetComponent<DataPersistenceManager>();
+    }
+
+    private void Start() 
+    {
+        // dpm = GameObject.FindWithTag("DPM");
+        // dataPersistenceManager = dpm.GetComponent<DataPersistenceManager>();
+        // incubationTimeLeft = dataPersistenceManager.gameData.incubationTimeLeftStat;
+        // Debug.Log("This is incubationTimeLeft at Start: " + incubationTimeLeft);
+
+        // actualIncTime = GameObject.FindWithTag("Egg").GetComponent<EggController>().incubationTimeLeft;
     }
 
     void Update()
     {
         CheckIncubationTime();
+        // dpm = GameObject.FindWithTag("DPM");
+        // dataPersistenceManager = dpm.GetComponent<DataPersistenceManager>();
     }
 
     public void LoadData(GameData data)
@@ -39,32 +57,32 @@ public class EggController : MonoBehaviour, IDataPersistence
         Debug.Log("Scene just saved as lastScene: " + data.lastScene);
     }
 
-    public void ShowPetting()
-    {
-        Debug.Log("Start petting incubationTimeLeft is: " + incubationTimeLeft);
-        pettingAnim.SetActive(true);
-        pettingAnim.SetActive(true);
-    }
+    // public void ShowPetting()
+    // {
+    //     pettingAnim.SetActive(true);
+    //     pettingAnim.SetActive(true);
+    // }
 
-    public void StopPetting()
-    {   
-        if (incubationTimeLeft > 0)
-        {
-            incubationTimeLeft -= 5;
+    // public void StopPetting()
+    // {   
+    //     if (incubationTimeLeft > 0)
+    //     {
+    //         incubationTimeLeft -= 10;
             
-            Debug.Log("After pet, this is incubationTimeLeft: " + incubationTimeLeft);
+    //         Debug.Log("After pet, this is incubationTimeLeft: " + incubationTimeLeft);
 
-            pettingAnim.SetActive(false);
-        }
-    }
+    //         pettingAnim.SetActive(false);
+    //     }
+    // }
 
     private void CheckIncubationTime()
     {
+        // Debug.Log("This is incTime on update: " + incubationTimeLeft);
         if (incubationTimeLeft > 0)
         {
             incubationTimeLeft -= Time.deltaTime;
         }
-        else 
+        else if (incubationTimeLeft <= 0)
         {
             if (lightsOff.activeInHierarchy)
             {

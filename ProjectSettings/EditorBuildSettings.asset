@@ -18,4 +18,6 @@ EditorBuildSettings:
     path: Assets/Scenes/BabyIdleScene.unity
     guid: a6817aff6a38c44c88b8ac44c2ddede2
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 36131ed227c4946f9ae38bed661320bc, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 1e6257f91b419448c912f826b55e646a, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: a4bde7f918ca848ababc38526f08715f, type: 2}

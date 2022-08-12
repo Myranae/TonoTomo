@@ -58,6 +58,8 @@ public class DataPersistenceManager : MonoBehaviour
     public void NewGame()
     {
         this.gameData = new GameData();
+        Debug.Log("NewGame incT level = " + gameData.incubationTimeLeftStat);
+
     }
 
     public void LoadGame()
@@ -81,6 +83,7 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         Debug.Log("Loaded food level = " + gameData.foodStat);
+        Debug.Log("Loaded incT level = " + gameData.incubationTimeLeftStat);
     }
 
     public void SaveGame() 

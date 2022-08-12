@@ -941,6 +941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataPersistenceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2635427752623036409, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}
+      propertyPath: m_TagString
+      value: DPM
+      objectReference: {fileID: 0}
     - target: {fileID: 2635427752623036410, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}
       propertyPath: m_RootOrder
       value: 3
