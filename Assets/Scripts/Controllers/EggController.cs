@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EggController : MonoBehaviour, IDataPersistence
 {   
@@ -16,6 +17,8 @@ public class EggController : MonoBehaviour, IDataPersistence
     public UserActionController userActionController;
     public GameObject lightsOff;
     // public static EggController instance;
+    public Button lightsAction;
+    public Button petAction;
 
     private void Awake() 
     {
@@ -88,6 +91,8 @@ public class EggController : MonoBehaviour, IDataPersistence
             {
                 userActionController.GoToSleep();
             }
+            lightsAction.interactable = false;
+            petAction.interactable = false;
             pettingAnim.SetActive(false);
             eggAnimator.SetBool("timeToHatch", true);
         }

@@ -49,10 +49,11 @@ public class NeedsManagement : MonoBehaviour
     //     petAnimator.SetTrigger("Tired");
     // }
 
-    // public void Thirsty()
-    // {
-    //     petAnimator.SetTrigger("Thirsty");
-    // }
+    public void Heal()
+    {
+        showNeeds.hideNeedBubbles = true;
+        petAnimator.SetTrigger("Heal");
+    }
 
     public void Eat()
     {

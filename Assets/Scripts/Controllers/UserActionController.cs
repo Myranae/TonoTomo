@@ -11,6 +11,7 @@ public class UserActionController : MonoBehaviour
     private int cleanlinessChange = 30;
     private int foodChange = 15;
     private int hydrationChange = 15;
+    private int healthChange = 35;
     // This is how much the energyChange should be if it needs to sleep all night; it's not tuned for that yet though
     // private int energyChange = (1/2520);
     private int energyChange = 5;
@@ -106,6 +107,13 @@ public class UserActionController : MonoBehaviour
         needsController.food += foodChange;
         if (needsController.food > 100)
             needsController.food = 100;
+    }
+
+    public void IncreaseHealth()
+    {
+        needsController.health += healthChange;
+        if (needsController.health > 100)
+            needsController.health = 100;
     }
     public void IncreaseEnergy()
     {
