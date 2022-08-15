@@ -83,7 +83,7 @@ public class UserActionController : MonoBehaviour
     {
         lightsOff.SetActive(!lightsOff.activeSelf);
         medicineAction.SetActive(!medicineAction.activeSelf);
-        gameAction.SetActive(!gameAction.activeSelf);
+        // gameAction.SetActive(!gameAction.activeSelf);
         bathAction.SetActive(!bathAction.activeSelf);
         drinkAction.SetActive(!drinkAction.activeSelf);
         foodAction.SetActive(!foodAction.activeSelf);

@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BabyIdleScene.unity
     guid: a6817aff6a38c44c88b8ac44c2ddede2
+  - enabled: 1
+    path: Assets/Scenes/PetDeath.unity
+    guid: 93c6842ab31f7480586910dd61c6b817
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 36131ed227c4946f9ae38bed661320bc, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 1e6257f91b419448c912f826b55e646a, type: 2}
