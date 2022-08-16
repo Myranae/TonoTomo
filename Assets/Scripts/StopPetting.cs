@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,9 +14,6 @@ public class StopPetting : MonoBehaviour
             if (eggController.incubationTimeLeft > 0)
             {
                 eggController.incubationTimeLeft -= 10;
-                
-                Debug.Log("After pet, this is nc.incubationTimeLeft: " + eggController.incubationTimeLeft);
-
                 pettingAnim.SetActive(false);
             }
         }

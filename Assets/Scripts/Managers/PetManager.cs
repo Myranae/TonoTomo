@@ -29,8 +29,6 @@ public class PetManager : MonoBehaviour
             MovePetToRandomWaypoint();
             petMoveTimer = Random.Range(1,6);
         }
-
-        // RandomMoveTime();
     }
 
     private void MovePetToRandomWaypoint()

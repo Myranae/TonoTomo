@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2635427752623036411}
   m_Layer: 0
   m_Name: DataPersistenceManager
-  m_TagString: Untagged
+  m_TagString: DPM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.game
-  useEncryption: 1
+  useEncryption: 0
   gameData:
     foodStat: 70
     cleanlinessStat: 70
@@ -56,3 +56,4 @@ MonoBehaviour:
     incubationTimeLeftStat: 60
     lastScene: EggIdleScene
     hasHatchedStat: 0
+    isSleepingStat: 0

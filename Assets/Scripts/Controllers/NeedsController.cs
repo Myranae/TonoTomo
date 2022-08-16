@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-// using System.Collections;
 
 public class NeedsController : MonoBehaviour, IDataPersistence
 {
@@ -11,20 +10,20 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     public GameObject dirtyAnim;
     public GameObject thirstyAnim;
     public GameObject sickAnim;
-    public DateTime lastTimeFed;
     private NeedsManagement needsManagement;
     public GameObject needsActions;
-    [SerializeField] private int needsThreshold;
     private ShowNeeds showNeeds;
     public GameObject pet;
     public GameObject tiredAnim;
     public TimeSpan interval;
     public float secondsSinceLastPlayed;
     public float gameHoursSinceLastPlayed;
-    // public EggController eggController;
     public bool hasHatchedNc;
     public GameObject lightsOff;
     public UserActionController userActionController;
+    public DateTime lastTimePlayed;
+    public DateTime timeStartedPlaying;
+    private DataPersistenceManager dataPersistenceManager;
 
     private void Awake() 
     {
@@ -33,7 +32,12 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         thirstyAnim.SetActive(false);
         tiredAnim.SetActive(false);
         sickAnim.SetActive(false);
+
+        dataPersistenceManager = GameObject.FindGameObjectWithTag("DPM").GetComponent<DataPersistenceManager>();
+
+        timeStartedPlaying = DateTime.UtcNow;
     }
+
     private void Start() {
         needsManagement = needsActions.GetComponent<NeedsManagement>();
         showNeeds = pet.GetComponent<ShowNeeds>();
@@ -53,7 +57,6 @@ public class NeedsController : MonoBehaviour, IDataPersistence
                 
                 if (lightsOff.activeSelf)
                 {
-                    Debug.Log("LightsOff is active.");
                     userActionController.IncreaseEnergy();
                 }
             }
@@ -70,35 +73,43 @@ public class NeedsController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        data.gameStart = DateTime.UtcNow;
-        Debug.Log("This is gameStart on LoadData: " + data.gameStart);
-        Debug.Log("This is gameLastPlayed on LoadData: " + data.gameLastPlayed);
-        Debug.Log("This is data.hasHatchedStat on LoadData: " + data.hasHatchedStat);
+        DateTime gs = DateTime.Parse(data.gameStart); 
+        this.timeStartedPlaying = gs;
 
         float timePassed = data.hasHatchedStat ? CalculateGameHoursPassed(data) : 0;
-        Debug.Log("This is timePassed: " + timePassed);
 
         this.food = data.foodStat - foodTickRate*timePassed;
-        Debug.Log("This is the new food: " + this.food);
-
         this.happiness = data.happinessStat - happinessTickRate*timePassed;
-        Debug.Log("On LoadData, this.happiness = " + this.happiness);
-
-        this.energy = data.energyStat - energyTickRate*timePassed;
         this.hydration = data.hydrationStat - hydrationTickRate*timePassed;
         this.cleanliness = data.cleanlinessStat - cleanlinessTickRate*timePassed;
         this.health = data.healthStat - healthTickRate*timePassed;
+
+        if (userActionController.isSleeping)
+        {
+            this.energy = data.energyStat + energyTickRate*timePassed;
+        } 
+        else
+        {
+            this.energy = data.energyStat - energyTickRate*timePassed;
+        }
+
         this.hasHatchedNc = data.hasHatchedStat;
     }
 
     public float CalculateGameHoursPassed(GameData data)
     {
-        interval = data.gameStart - data.gameLastPlayed;
+        interval = timeStartedPlaying - DateTime.Parse(data.gameLastPlayed);
+        Debug.Log("This is gameStart: " + data.gameStart);
+        Debug.Log("This is gameLastPlayed: " + data.gameLastPlayed);
         Debug.Log("This is the interval: " + interval);
+
         secondsSinceLastPlayed = interval.Seconds;
-        Debug.Log("This is seconds since last played: " + secondsSinceLastPlayed);
-        Debug.Log("This is seconds times deltaTime: " + secondsSinceLastPlayed * Time.deltaTime);
+        Debug.Log("Seconds since last played: " + secondsSinceLastPlayed);
+
         gameHoursSinceLastPlayed = secondsSinceLastPlayed / TimingManager.instance.hourLength;
+        Debug.Log("HourLength from TimingManager: " + TimingManager.instance.hourLength);
+
+        Debug.Log("Game hours since last played from NC: " + gameHoursSinceLastPlayed);
         return gameHoursSinceLastPlayed;
     }
 
@@ -111,7 +122,11 @@ public class NeedsController : MonoBehaviour, IDataPersistence
             data.hydrationStat = this.hydration;
             data.cleanlinessStat = this.cleanliness;
             data.healthStat = this.health;
-            data.gameLastPlayed = DateTime.UtcNow;
+
+            data.gameLastPlayed = this.lastTimePlayed.ToString("u");
+
+            Debug.Log("Saving last time played (" + this.lastTimePlayed + ") as gamelastplayed (" + data.gameLastPlayed + ").");
+
             data.lastScene = SceneManager.GetActiveScene().name != "Menu" ? SceneManager.GetActiveScene().name : data.lastScene;
         }
     }
@@ -235,13 +250,10 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         thirstyAnim.SetActive(false);
     }
 
-    // Might want to change the below to one called ChangeNeed and pass in
-    // the string or variable of the need to change, plus the amount to change
     public void ChangeFood(float amount)
     {
         food += amount;
         if(food > 100) food = 100;
-        // if(food < 0) food = 0;
         if (food < 0) 
         {
             food = 0;
@@ -253,7 +265,6 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         happiness += amount;
         if(happiness > 100) happiness = 100;
-        // if(happiness < 0) happiness = 0;
         if (happiness < 0) 
         {
             happiness = 0;
@@ -265,7 +276,6 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         energy += amount;
         if(energy > 100) energy = 100;
-        // if(energy < 0) energy = 0;
         if(energy < 0)
         {
             energy = 0;
@@ -277,7 +287,6 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         hydration += amount;
         if(hydration > 100) hydration = 100;
-        // if(hydration < 0) hydration = 0;
         if(hydration < 0)
         {
             hydration = 0;
@@ -289,7 +298,6 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     {
         cleanliness += amount;
         if(cleanliness > 100) cleanliness = 100;
-        // if(cleanliness < 0) cleanliness = 0;
         if(cleanliness < 0)
         {
             cleanliness = 0;

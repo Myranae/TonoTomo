@@ -6,6 +6,8 @@ TagManager:
   tags:
   - DPM
   - Egg
+  - Pet
+  - UAC GO
   layers:
   - Default
   - TransparentFX

@@ -928,6 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataPersistenceManager: {fileID: 1192053001}
+  userActionController: {fileID: 0}
   newGameButton: {fileID: 1169054822}
   continueGameButton: {fileID: 2043274281}
 --- !u!1001 &1466440686
@@ -940,10 +941,6 @@ PrefabInstance:
     - target: {fileID: 2635427752623036409, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}
       propertyPath: m_Name
       value: DataPersistenceManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2635427752623036409, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}
-      propertyPath: m_TagString
-      value: DPM
       objectReference: {fileID: 0}
     - target: {fileID: 2635427752623036410, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}
       propertyPath: m_RootOrder
@@ -988,10 +985,6 @@ PrefabInstance:
     - target: {fileID: 2635427752623036410, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2635427752623036411, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}
-      propertyPath: useEncryption
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0286a9e1c35784ad8a8faced29d72fd8, type: 3}

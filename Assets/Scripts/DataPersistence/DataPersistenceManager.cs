@@ -2,10 +2,13 @@ using UnityEngine;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 public class DataPersistenceManager : MonoBehaviour
 {
     // [Header("Debugging")]
     // [SerializeField] private bool initializeDataIfNull = false;
+    private UserActionController userActionController;
+    private NeedsController needsController;
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
@@ -14,7 +17,6 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance { get; private set; }
-
 
     private void Awake() 
     {
@@ -45,21 +47,40 @@ public class DataPersistenceManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
-        // SceneManager.LoadScene(gameData.lastScene);
 
+        LoadGame();
+        
+        Debug.Log("gameData.gamelastplayed onSceneLoaded: " + gameData.gameLastPlayed);
+
+        if (scene.name == "BabyIdleScene")
+        {
+            userActionController = GameObject.FindWithTag("UAC GO").GetComponent<UserActionController>();
+
+            if (gameData.isSleepingStat)
+            {
+                userActionController.GoToSleep();
+            }
+        }
     }
 
     public void OnSceneUnloaded(Scene scene)
     {
         SaveGame();
+        // if (scene.name != "Opening 2")
+        // {
+        //     Debug.Log("Saving on scene unload: " + scene.name);
+        //     SaveGame();
+        // }
+        // else
+        // {
+        //     Debug.Log("Not saving when unloading opening.");
+        // }
+        Debug.Log("This is OnSceneUnloaded; game saved");
     }
 
     public void NewGame()
     {
         this.gameData = new GameData();
-        Debug.Log("NewGame incT level = " + gameData.incubationTimeLeftStat);
-
     }
 
     public void LoadGame()
@@ -81,9 +102,6 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.LoadData(gameData);
         }
-
-        Debug.Log("Loaded food level = " + gameData.foodStat);
-        Debug.Log("Loaded incT level = " + gameData.incubationTimeLeftStat);
     }
 
     public void SaveGame() 
@@ -99,15 +117,19 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.SaveData(ref gameData);
         }
 
-        Debug.Log("Saved food count = " + gameData.foodStat);
-        Debug.Log(Application.persistentDataPath);
-
+        // Debug.Log(Application.persistentDataPath);
         dataHandler.Save(gameData);
     }
 
     private void OnApplicationQuit()
     {
+        needsController = GameObject.FindWithTag("Pet").GetComponent<NeedsController>();
+        needsController.lastTimePlayed = DateTime.UtcNow;
+        Debug.Log("Game last played on quit: " + needsController.lastTimePlayed);  //correct time
+        Debug.Log("Game last played on quit: " + gameData.gameLastPlayed); //incorrect time
         SaveGame();
+        Debug.Log("Game last played on quit after save: " + gameData.gameLastPlayed); 
+
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()

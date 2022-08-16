@@ -11,20 +11,9 @@ public class SettingsUIController : MonoBehaviour
     [HideInInspector] public Scene currentScene;
     private string sceneName;
 
-
     void Start()
     {
         TurnOnSound();
-    }
-
-
-    void Update()
-    {
-        // Scene newScene = SceneManager.GetActiveScene();
-        // if(newScene.name != "Menu" && currentScene != newScene)
-        // {
-        //     currentScene = newScene;
-        // }
     }
 
     public void TurnOffSound()
@@ -39,7 +28,6 @@ public class SettingsUIController : MonoBehaviour
     {
         soundOn.SetActive(true);
         soundOff.SetActive(false);
-        // audioSource.clip = bckgrndMusic;
         audioSource.Play();
         muted = false;
     }
@@ -48,7 +36,6 @@ public class SettingsUIController : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene();
         sceneName = currentScene.name;
-        Debug.Log("Newly current scene is: " + sceneName);
     }
 
     public void GoToMenu()
@@ -59,8 +46,6 @@ public class SettingsUIController : MonoBehaviour
 
     public void ReturnToActiveScene()
     {
-        // Debug.Log("Current scene is: " + currentScene.name);
-        Debug.Log("Previous scene name is: " + Level.PreviousLevel);
         SceneManager.LoadScene(Level.PreviousLevel);
     }
 }

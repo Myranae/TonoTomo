@@ -1,12 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UserActionController : MonoBehaviour
+public class UserActionController : MonoBehaviour, IDataPersistence
 {
     public GameObject pettingAnim;
-    // [SerializeField] private NeedsManagement needsManagement;
     public NeedsController needsController;
-    // public GameObject needsAction;
     private int happinessChange = 10;
     private int cleanlinessChange = 30;
     private int foodChange = 15;
@@ -15,7 +13,7 @@ public class UserActionController : MonoBehaviour
     // This is how much the energyChange should be if it needs to sleep all night; it's not tuned for that yet though
     // private int energyChange = (1/2520);
     private int energyChange = 5;
-    public GameObject pet;
+    // public GameObject pet;
     public GameObject lightsOff;
     public GameObject medicineAction;
     public GameObject gameAction;
@@ -23,7 +21,8 @@ public class UserActionController : MonoBehaviour
     public GameObject drinkAction;
     public GameObject foodAction;
     public GameObject petAction;
-    private ShowNeeds showNeeds;
+    public ShowNeeds showNeeds;
+    public bool isSleeping;
 
 
     private void Awake() 
@@ -33,28 +32,24 @@ public class UserActionController : MonoBehaviour
 
     private void Start() 
     {
-        showNeeds = pet.GetComponent<ShowNeeds>();
+        // showNeeds = pet.GetComponent<ShowNeeds>();
     }
 
-    private void Update()
+    public void LoadData(GameData data)
     {
-        // if (lightsOff.activeSelf)
-        // {
-        //     Debug.Log("LightsOff is active.");
-        //     IncreaseEnergy();
-        // }
+        this.isSleeping = data.isSleepingStat;
     }
 
-    public void ShowPetting()
+    public void SaveData(ref GameData data)
     {
-        pettingAnim.SetActive(true);
-        pettingAnim.SetActive(true);
+        data.isSleepingStat = this.isSleeping;
     }
 
-    // public void StopPetting()
-    // {   
-    //     pettingAnim.SetActive(false);
-    //     IncreaseHappiness();
+
+    // public void ShowPetting()
+    // {
+    //     pettingAnim.SetActive(true);
+    //     pettingAnim.SetActive(true);
     // }
 
     public void IncreaseHappiness()
@@ -62,7 +57,6 @@ public class UserActionController : MonoBehaviour
         needsController.happiness += happinessChange;
         if (needsController.happiness > 100)
             needsController.happiness = 100;
-
     }
 
     public void IncreaseCleanliness()
@@ -81,6 +75,7 @@ public class UserActionController : MonoBehaviour
 
     public void GoToSleep() 
     {
+        isSleeping = isSleeping ? false : true;
         lightsOff.SetActive(!lightsOff.activeSelf);
         medicineAction.SetActive(!medicineAction.activeSelf);
         // gameAction.SetActive(!gameAction.activeSelf);
@@ -89,6 +84,7 @@ public class UserActionController : MonoBehaviour
         foodAction.SetActive(!foodAction.activeSelf);
         petAction.SetActive(!petAction.activeSelf);
         showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
+
     }
     public void EggGoToSleep() 
     {
@@ -100,6 +96,7 @@ public class UserActionController : MonoBehaviour
         // foodAction.SetActive(!foodAction.activeSelf);
         petAction.SetActive(!petAction.activeSelf);
         // showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
+        isSleeping = !isSleeping;
     }
 
     public void IncreaseFood()
@@ -117,7 +114,6 @@ public class UserActionController : MonoBehaviour
     }
     public void IncreaseEnergy()
     {
-        Debug.Log("Active scene name is: " + SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name != "EggIdleScene")
         {
             needsController.energy += energyChange;
@@ -125,10 +121,4 @@ public class UserActionController : MonoBehaviour
                 needsController.energy = 100;
         }
     }
-
-    // public void ShowPetting()
-    // {
-    //     pettingAnim.SetActive(true);
-    //     pettingAnim.SetActive(true);
-    // }
 }

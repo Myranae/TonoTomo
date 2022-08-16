@@ -3,12 +3,12 @@ using System;
 public class GameData 
 {
     public float foodStat, cleanlinessStat, happinessStat, hydrationStat, energyStat, healthStat, incubationTimeLeftStat;
-    public DateTime gameStart;
-    public DateTime gameLastPlayed;
+    public string gameStart;
+    public string gameLastPlayed;
     // public DateTime gameExit;
     private int defaultStat = 70;
     public string lastScene;
-    public bool hasHatchedStat;
+    public bool hasHatchedStat, isSleepingStat;
 
     public GameData()
     {
@@ -21,7 +21,10 @@ public class GameData
         this.hydrationStat = defaultStat;
         this.healthStat = defaultStat;
         this.foodStat = defaultStat;
-        this.gameStart = DateTime.UtcNow;
-        this.gameLastPlayed = DateTime.UtcNow;
+        this.gameStart = DateTime.UtcNow.ToString("u");
+        this.gameLastPlayed = DateTime.UtcNow.ToString("u");
+        this.isSleepingStat = false;
     }
+
+    //"MM/dd/yyyy HH:mm:ss"
 }

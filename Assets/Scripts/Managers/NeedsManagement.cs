@@ -10,7 +10,6 @@ public class NeedsManagement : MonoBehaviour
 
     private void Awake() {
         pettingAnim.SetActive(false);
-        // dirtyAnim.SetActive(false);
         showNeeds = pet.GetComponent<ShowNeeds>();
 
     }
@@ -24,30 +23,17 @@ public class NeedsManagement : MonoBehaviour
         petAnimator.SetTrigger("Happy");
     }
 
-    // public void Hungry()
-    // {
-    //     petAnimator.SetTrigger("Hungry");
-    // }
-
     public void Sad()
     {
-        // petAnimator.SetTrigger("Sad");
         petAnimator.SetBool("isSad", true);
         isSad = true;
     }
 
     public void notSad()
     {
-        // petAnimator.SetTrigger("Sad");
         petAnimator.SetBool("isSad", false);
         isSad = false;
-        // Idle();
     }
-
-    // public void Tired()
-    // {
-    //     petAnimator.SetTrigger("Tired");
-    // }
 
     public void Heal()
     {
@@ -67,21 +53,10 @@ public class NeedsManagement : MonoBehaviour
         petAnimator.SetTrigger("Drink");
     }
 
-    // public void Dirty()
-    // {
-    //     petAnimator.SetTrigger("Dirty");
-    // }
-
     public void Bath()
     {
         showNeeds.hideNeedBubbles = true;
         petAnimator.SetTrigger("Bath");
     }
-
-    // public void Sleep()
-    // {
-    //     showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
-    //     petAnimator.SetTrigger("Sleep");
-    // }
 
 }
