@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: data.game
-  useEncryption: 0
+  useEncryption: 1
   gameData:
     foodStat: 70
     cleanlinessStat: 70
@@ -54,6 +54,8 @@ MonoBehaviour:
     energyStat: 70
     healthStat: 70
     incubationTimeLeftStat: 60
+    gameStart: 2022-08-16 04:37:12Z
+    gameLastPlayed: 2022-08-16 04:37:12Z
     lastScene: EggIdleScene
     hasHatchedStat: 0
     isSleepingStat: 0

@@ -17,9 +17,12 @@ public class MainMenu : MonoBehaviour
 
     private void Start() 
     {
-        if(!DataPersistenceManager.instance.HasGameData())
+        if (SceneManager.GetActiveScene().name == "Opening 2")
         {
-            continueGameButton.interactable = false;
+            if(!DataPersistenceManager.instance.HasGameData())
+            {
+                continueGameButton.interactable = false;
+            }
         }
 
         // showNeeds = GameObject.FindWithTag("Pet").GetComponent<ShowNeeds>();

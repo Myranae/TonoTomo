@@ -48,4 +48,9 @@ public class SettingsUIController : MonoBehaviour
     {
         SceneManager.LoadScene(Level.PreviousLevel);
     }
+
+    public void exitGame() 
+    {
+        Application.Quit();
+    }
 }

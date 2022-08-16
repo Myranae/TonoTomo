@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819107551746222, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -828
+      value: -784
       objectReference: {fileID: 0}
     - target: {fileID: 8014819107551746222, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819108244602047, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -828
+      value: -784
       objectReference: {fileID: 0}
     - target: {fileID: 8014819108244602047, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToMenu
+      value: exitGame
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109146662173, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -660,11 +660,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109146662174, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -10
+      value: -81
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109146662174, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 32
+      value: -58
       objectReference: {fileID: 0}
     - target: {fileID: 8014819109224151015, guid: c071ed2dd139c409c9b673661bdcda71, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 138708289}
   - component: {fileID: 138708288}
   - component: {fileID: 138708287}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: WhiteSleepyAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ SortingGroup:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138708285}
-  m_Enabled: 1
+  m_Enabled: 0
   m_SortingLayerID: -2133565343
   m_SortingLayer: 2
   m_SortingOrder: 7
@@ -1844,7 +1844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695376909}
   - component: {fileID: 1695376910}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: SoundBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1859,8 +1859,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695376908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.422, y: 0.387, z: 0}
-  m_LocalScale: {x: 0.06692569, y: 0.11559891, z: 0.12168305}
+  m_LocalPosition: {x: -0.399, y: 0.386, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.086, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1944772512}
@@ -1906,7 +1906,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2133565343
   m_SortingLayer: 2
-  m_SortingOrder: 7
+  m_SortingOrder: 6
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.54509807}
   m_FlipX: 0
@@ -2003,7 +2003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944772512}
   - component: {fileID: 1944772513}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Lights Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2067,7 +2067,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2133565343
   m_SortingLayer: 2
-  m_SortingOrder: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -2367,8 +2367,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2073282360007915879, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073282360007915879, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: m_SortingOrder
-      value: 5
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073282360007915879, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -376195303
       objectReference: {fileID: 0}
     - target: {fileID: 3469487466978980110, guid: b6f44afd47bf94743b048e60478dffcd, type: 3}
       propertyPath: m_RootOrder

@@ -28,7 +28,10 @@ public class UserActionController : MonoBehaviour, IDataPersistence
     private void Awake() 
     {
         pettingAnim.SetActive(false);
-        showNeeds = GameObject.FindGameObjectWithTag("Pet").GetComponent<ShowNeeds>();
+        // if (SceneManager.GetActiveScene().name == "Pet_Baby")
+        // {
+        //     showNeeds = GameObject.FindGameObjectWithTag("Pet").GetComponent<ShowNeeds>();
+        // }
     }
 
     // private void Start() 
@@ -84,7 +87,8 @@ public class UserActionController : MonoBehaviour, IDataPersistence
         drinkAction.SetActive(!drinkAction.activeSelf);
         foodAction.SetActive(!foodAction.activeSelf);
         petAction.SetActive(!petAction.activeSelf);
-        showNeeds.hideNeedBubbles = !showNeeds.hideNeedBubbles;
+
+        GameObject.FindGameObjectWithTag("Pet").GetComponent<ShowNeeds>().hideNeedBubbles = !GameObject.FindGameObjectWithTag("Pet").GetComponent<ShowNeeds>().hideNeedBubbles;
 
     }
     public void EggGoToSleep() 

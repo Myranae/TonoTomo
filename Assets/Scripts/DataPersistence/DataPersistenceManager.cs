@@ -55,6 +55,10 @@ public class DataPersistenceManager : MonoBehaviour
         
             Debug.Log("gameData.gamelastplayed onSceneLoaded: " + gameData.gameLastPlayed);
         }
+        else
+        {
+            Debug.Log("Just going to menu");
+        }
 
         if (scene.name == "BabyIdleScene")
         {
@@ -116,12 +120,9 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
 
-        if (dataPersistenceObjects.Count > 0)
+        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
-            {
-                dataPersistenceObj.SaveData(ref gameData);
-            }
+            dataPersistenceObj.SaveData(ref gameData);
         }
 
         // Debug.Log(Application.persistentDataPath);
