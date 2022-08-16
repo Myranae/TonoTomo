@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40c9314811ae428c9811af9af5268d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pettingAnim: {fileID: 0}
+  pettingAnim: {fileID: 697741869}
 --- !u!1 &697741869
 GameObject:
   m_ObjectHideFlags: 0

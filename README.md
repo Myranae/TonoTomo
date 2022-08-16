@@ -39,3 +39,6 @@ TonoTomo is a social, mobile game where the user raises a critter from hatching 
 - Getting sick if health is low for too long, needing medicine to heal
 - One social component; need more research
 - Summary: one egg, five growth stages (plus two adult types), one game, one food (plus water), baths/cleaning mess, petting/brushing, getting sick/better, one social component
+
+## To Play - 
+The game can be access on itch.io: https://myranae.itch.io/tonotomo. To work on this game, the repo contains the scripts, scenes, and assets you would need to use in a Unity project. It was built in Unity 2021.3.6f1 but the material may be usable in newer versions as well. Contact the repo owner with any questions.
