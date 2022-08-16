@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class NeedsController : MonoBehaviour, IDataPersistence
 {
-    public float food, happiness, hydration, cleanliness, energy, health;
+    public double food, happiness, hydration, cleanliness, energy, health;
     public float foodTickRate, happinessTickRate, hydrationTickRate, cleanlinessTickRate, energyTickRate, healthTickRate;
     public GameObject hungryAnim;
     public GameObject dirtyAnim;
@@ -16,8 +16,8 @@ public class NeedsController : MonoBehaviour, IDataPersistence
     public GameObject pet;
     public GameObject tiredAnim;
     public TimeSpan interval;
-    public float secondsSinceLastPlayed;
-    public float gameHoursSinceLastPlayed;
+    public double secondsSinceLastPlayed;
+    public double gameHoursSinceLastPlayed;
     public bool hasHatchedNc;
     public GameObject lightsOff;
     public UserActionController userActionController;
@@ -35,12 +35,15 @@ public class NeedsController : MonoBehaviour, IDataPersistence
 
         dataPersistenceManager = GameObject.FindGameObjectWithTag("DPM").GetComponent<DataPersistenceManager>();
 
-        timeStartedPlaying = DateTime.UtcNow;
+        // timeStartedPlaying = DateTime.UtcNow;
+        // DataPersistenceManager.instance.SaveGame();
+
+        showNeeds = pet.GetComponent<ShowNeeds>();
+        userActionController = pet.GetComponent<UserActionController>();
     }
 
     private void Start() {
         needsManagement = needsActions.GetComponent<NeedsManagement>();
-        showNeeds = pet.GetComponent<ShowNeeds>();
     }
 
     private void Update() 
@@ -73,10 +76,10 @@ public class NeedsController : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        DateTime gs = DateTime.Parse(data.gameStart); 
-        this.timeStartedPlaying = gs;
+        // this.timeStartedPlaying = DateTime.Parse(data.gameStart);
+        data.gameStart = DateTime.UtcNow.ToString("u");
 
-        float timePassed = data.hasHatchedStat ? CalculateGameHoursPassed(data) : 0;
+        double timePassed = data.hasHatchedStat ? CalculateGameHoursPassed(data) : 0;
 
         this.food = data.foodStat - foodTickRate*timePassed;
         this.happiness = data.happinessStat - happinessTickRate*timePassed;
@@ -84,29 +87,32 @@ public class NeedsController : MonoBehaviour, IDataPersistence
         this.cleanliness = data.cleanlinessStat - cleanlinessTickRate*timePassed;
         this.health = data.healthStat - healthTickRate*timePassed;
 
-        if (userActionController.isSleeping)
+        if (data.isSleepingStat)
         {
+            Debug.Log("Sleeping, so adding: " + energyTickRate*timePassed);
             this.energy = data.energyStat + energyTickRate*timePassed;
         } 
         else
         {
+            Debug.Log("Not sleeping, right?");
             this.energy = data.energyStat - energyTickRate*timePassed;
         }
 
         this.hasHatchedNc = data.hasHatchedStat;
     }
 
-    public float CalculateGameHoursPassed(GameData data)
+    public double CalculateGameHoursPassed(GameData data)
     {
-        interval = timeStartedPlaying - DateTime.Parse(data.gameLastPlayed);
+        // interval = DateTime.Parse(data.gameLastPlayed) - timeStartedPlaying;
+        interval = DateTime.Parse(data.gameStart) - DateTime.Parse(data.gameLastPlayed);
         Debug.Log("This is gameStart: " + data.gameStart);
         Debug.Log("This is gameLastPlayed: " + data.gameLastPlayed);
         Debug.Log("This is the interval: " + interval);
 
-        secondsSinceLastPlayed = interval.Seconds;
+        secondsSinceLastPlayed = interval.TotalSeconds;
         Debug.Log("Seconds since last played: " + secondsSinceLastPlayed);
 
-        gameHoursSinceLastPlayed = secondsSinceLastPlayed / TimingManager.instance.hourLength;
+        gameHoursSinceLastPlayed = secondsSinceLastPlayed / (double)TimingManager.instance.hourLength;
         Debug.Log("HourLength from TimingManager: " + TimingManager.instance.hourLength);
 
         Debug.Log("Game hours since last played from NC: " + gameHoursSinceLastPlayed);

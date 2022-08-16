@@ -48,9 +48,13 @@ public class DataPersistenceManager : MonoBehaviour
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
 
-        LoadGame();
+        if (scene.name != "Menu")
+        {
+            LoadGame();
+
         
-        Debug.Log("gameData.gamelastplayed onSceneLoaded: " + gameData.gameLastPlayed);
+            Debug.Log("gameData.gamelastplayed onSceneLoaded: " + gameData.gameLastPlayed);
+        }
 
         if (scene.name == "BabyIdleScene")
         {
@@ -65,16 +69,16 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void OnSceneUnloaded(Scene scene)
     {
-        SaveGame();
-        // if (scene.name != "Opening 2")
-        // {
-        //     Debug.Log("Saving on scene unload: " + scene.name);
-        //     SaveGame();
-        // }
-        // else
-        // {
-        //     Debug.Log("Not saving when unloading opening.");
-        // }
+        // SaveGame();
+        if (scene.name != "Menu")
+        {
+            Debug.Log("Saving on scene unload: " + scene.name);
+            SaveGame();
+        }
+        else
+        {
+            Debug.Log("Not saving when unloading Menu.");
+        }
         Debug.Log("This is OnSceneUnloaded; game saved");
     }
 
@@ -112,9 +116,12 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
 
-        foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+        if (dataPersistenceObjects.Count > 0)
         {
-            dataPersistenceObj.SaveData(ref gameData);
+            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+            {
+                dataPersistenceObj.SaveData(ref gameData);
+            }
         }
 
         // Debug.Log(Application.persistentDataPath);

@@ -2,7 +2,9 @@ using System;
 [System.Serializable]
 public class GameData 
 {
-    public float foodStat, cleanlinessStat, happinessStat, hydrationStat, energyStat, healthStat, incubationTimeLeftStat;
+    public double foodStat, cleanlinessStat, happinessStat, hydrationStat, energyStat, healthStat;
+
+    public float incubationTimeLeftStat;
     public string gameStart;
     public string gameLastPlayed;
     // public DateTime gameExit;

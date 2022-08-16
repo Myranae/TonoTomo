@@ -1192,7 +1192,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697741869}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82613f48ebb554809ae4146ed041b348, type: 3}
   m_Name: 
@@ -1679,6 +1679,8 @@ MonoBehaviour:
     energyStat: 70
     healthStat: 70
     incubationTimeLeftStat: 60
+    gameStart: 2022-08-16 05:49:52Z
+    gameLastPlayed: 2022-08-16 05:49:52Z
     lastScene: EggIdleScene
     hasHatchedStat: 0
     isSleepingStat: 0

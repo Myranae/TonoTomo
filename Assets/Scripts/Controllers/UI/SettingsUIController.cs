@@ -41,7 +41,7 @@ public class SettingsUIController : MonoBehaviour
     public void GoToMenu()
     {
         SceneManager.LoadScene("Menu");
-        Debug.Log(sceneName);
+        Debug.Log("This is the scene name when going to menu: " + sceneName);
     }
 
     public void ReturnToActiveScene()

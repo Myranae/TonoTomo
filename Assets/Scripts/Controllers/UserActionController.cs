@@ -28,12 +28,13 @@ public class UserActionController : MonoBehaviour, IDataPersistence
     private void Awake() 
     {
         pettingAnim.SetActive(false);
+        showNeeds = GameObject.FindGameObjectWithTag("Pet").GetComponent<ShowNeeds>();
     }
 
-    private void Start() 
-    {
-        // showNeeds = pet.GetComponent<ShowNeeds>();
-    }
+    // private void Start() 
+    // {
+
+    // }
 
     public void LoadData(GameData data)
     {
