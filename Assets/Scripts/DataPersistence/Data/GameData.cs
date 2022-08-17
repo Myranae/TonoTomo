@@ -8,7 +8,7 @@ public class GameData
     public string gameStart;
     public string gameLastPlayed;
     // public DateTime gameExit;
-    private int defaultStat = 70;
+    private int defaultStat = 53;
     public string lastScene;
     public bool hasHatchedStat, isSleepingStat;
 
